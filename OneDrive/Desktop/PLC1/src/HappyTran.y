@@ -1,5 +1,5 @@
 { 
-module MDLGrammar where 
+module HappyTran where 
 import MDLTokens 
 }
 
@@ -7,10 +7,10 @@ import MDLTokens
 %tokentype { MDLToken } 
 %error { parseError }
 %token 
-    digit   { TokenDigit _ $$ } 
+    digit   { TokenDigit _ $$ }
     int     { TokenInt _ $$ } 
-    true { TokenTrue}
-    false { TokenFalse}
+    true { TokenTrue _ }
+    false { TokenFalse _}
     If      { TokenIf _ } 
     Then    { TokenThen _ } 
     Else    { TokenElse _ } 
@@ -20,8 +20,11 @@ import MDLTokens
     Blank { TokenBlank _ }
     Size { TokenSize _ }
     For { TokenFor _ }
-    IntType { TokenTypeInt}
-    BoolType { TokenTypeBool}
+    IntType { TokenTypeInt _ }
+    BoolType { TokenTypeBool _ }
+    '<' { TokenLessThan _ }
+    '>' { TokenGreaterThan _}
+    '+' { TokenPlus _ }
     ';'     { TokenSeq _ }
     '('     { TokenLParen _ } 
     ')'     { TokenRParen _ }
@@ -43,8 +46,8 @@ Exp : If Exp Then Exp Else Exp  { If $2 $4 $6 }
     | false {Bool False}
     | true {Bool True}
     | false {Bool False}
-    | let '(' var ':' Type')' '=' Exp in Exp {Let $3 $5 $8 $10}
     | Exp '<' Exp {LessThan $1 $3}
+    | Exp '>' Exp {GreaterThan $1 $3}
     | Exp '+' Exp {Plus $1 $3}
 
 Type : IntType {IntType}
@@ -59,7 +62,9 @@ data Exp = Int Int
          | If Exp Exp Exp
          | Seq Exp Exp 
          | Bool Bool
+         | Plus Exp Exp
          | LessThan Exp Exp
+         | GreaterThan Exp Exp
          deriving Show 
 
 data Type = IntType

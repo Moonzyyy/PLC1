@@ -1,5 +1,5 @@
 { 
-module MDLTokens where 
+module AlexTran where 
 }
 
 %wrapper "posn" 
@@ -9,18 +9,18 @@ $digit = 0-9
 tokens :-
 $white+       ; 
   "--".*        ; 
-  Int          { \s -> TokenTypeInt }
-  Bool         { \s -> TokenTypeBool }
+  Int          { \s -> TokenTypeInt p }
+  Bool         { \s -> TokenTypeBool p }
   [1-9]          { \p s -> TokenDigit p (read s) } 
-  true       { \s -> TokenTrue}
-  false      { \s -> TokenFalse}
+  true       { \s -> TokenTrue p }
+  false      { \s -> TokenFalse p }
   $digit $digit+ { \p s -> TokenInt p (read s) }
   Check          { \p s -> TokenCheck p }
   If             { \p s -> TokenIf p }
   Then           { \p s -> TokenThen p }
   Else           { \p s -> TokenElse p }
-  \<             { \s -> TokenLessThan}
-  \>             { \s -> TokenGreaterThan}
+  \<             { \s -> TokenLessThan p }
+  \>             { \s -> TokenGreaterThan p}
   \;             { \p s -> TokenSeq p }
   \(             { \p s -> TokenLParen p }
   \)             { \p s -> TokenRParen p }
@@ -33,8 +33,8 @@ $white+       ;
 -- The token type: 
 data MDLToken = 
 
-  TokenTypeInt                 |
-  TokenTypeBool                |
+  TokenTypeInt AlexPosn                |
+  TokenTypeBool AlexPosn               |
   TokenDigit AlexPosn Int      |
   TokenInt AlexPosn Int        |
   TokenTrue AlexPosn           |

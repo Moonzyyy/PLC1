@@ -37,8 +37,11 @@ ghc-options:
 - -Wpartial-fields
 - -Wredundant-constraints
 
+
 library:
   source-dirs: src
+  dependencies:
+  - array
 
 executables:
   Tran-exe:
