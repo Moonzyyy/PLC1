@@ -1,10 +1,10 @@
 { 
 module HappyTran where 
-import MDLTokens 
+import AlexTran
 }
 
 %name parseCalc 
-%tokentype { MDLToken } 
+%tokentype { Token }
 %error { parseError }
 %token 
     digit   { TokenDigit _ $$ }
@@ -16,7 +16,7 @@ import MDLTokens
     Else    { TokenElse _ } 
     Join    { TokenCombine _ }
     Duplicate { TokenDuplicate _ }
-    Repeat { TokenRepeate _ }
+    Repeat { TokenRepeat _ }
     Blank { TokenBlank _ }
     Size { TokenSize _ }
     For { TokenFor _ }
@@ -54,14 +54,14 @@ Type : IntType {IntType}
      | BoolType {BoolType}
 
 { 
-parseError :: [MDLToken] -> a
+parseError :: [Token] -> a
 parseError [] = error "Unknown Parse Error" 
 parseError (t:ts) = error ("Parse error at line:column " ++ (tokenPosn t))
 data Exp = Int Int
          | Bool Bool
          | If Exp Exp Exp
-         | Seq Exp Exp 
-         | Bool Bool
+         | For Exp Exp
+         | Seq Exp Exp
          | Plus Exp Exp
          | LessThan Exp Exp
          | GreaterThan Exp Exp
@@ -70,4 +70,4 @@ data Exp = Int Int
 data Type = IntType
           | BoolType
           deriving (Show, Eq)
-} 
+}
