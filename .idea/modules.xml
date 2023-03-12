@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/PLC.iml" filepath="$PROJECT_DIR$/PLC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PLC1.iml" filepath="$PROJECT_DIR$/PLC1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plc1stack/plc1stack.iml" filepath="$PROJECT_DIR$/plc1stack/plc1stack.iml" />
     </modules>
   </component>
 </project>

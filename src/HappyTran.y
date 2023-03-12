@@ -49,6 +49,7 @@ Exp : If Exp Then Exp Else Exp  { If $2 $4 $6 }
     | Exp '<' Exp {LessThan $1 $3}
     | Exp '>' Exp {GreaterThan $1 $3}
     | Exp '+' Exp {Plus $1 $3}
+    | int {Int $1}
 
 Type : IntType {IntType}
      | BoolType {BoolType}

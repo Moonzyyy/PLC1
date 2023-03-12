@@ -13,7 +13,6 @@ $white+       ;
   "--".*        ; 
   Int          { \p s -> TokenTypeInt p }
   Bool         { \p s -> TokenTypeBool p }
-  [1-9]          { \p s -> TokenDigit p (read s) } 
   true       { \p s -> TokenTrue p }
   false      { \p s -> TokenFalse p }
   $digit+ { \p s -> TokenInt p (read s) }
