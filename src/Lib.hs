@@ -14,11 +14,21 @@ someFunc = do
            let parser = alexScanTokens(fileContent)
            putStrLn(show(parser))
            let grammar = parseCalc(parser)
+           putStrLn(show(grammar))
            putStrLn(show(reduce (grammar)))
            return ()
 
 reduce :: Exp -> Maybe Exp
 reduce (Plus (Int n) (Int m)) = Just $ Int (n+m)
+reduce (LessThan(Int n) (Int m)) | n < m = Just $ Bool True
+                                 | otherwise = Just $ Bool False
+reduce (GreaterThan(Int n) (Int m)) | n > m = Just $ Bool True
+                                    | otherwise = Just $ Bool False
+
+
+
+
+                                 
 reduce (Plus e1 e2) | newE1 /= Nothing = liftM2 Plus newE1 (Just e2)
                             | otherwise = liftM (Plus e1) newE2
                             where newE1 = reduce e1
