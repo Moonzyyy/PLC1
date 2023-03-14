@@ -1,0 +1,2 @@
+Let (x : Tile) = Read "1.tl" In
+Output x
