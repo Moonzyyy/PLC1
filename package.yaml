@@ -1,10 +1,10 @@
 name:                Tsl
 version:             0.1.0.0
-github:              "githubuser/Tsl"
+github:              "turtl3/Tsl"
 license:             BSD3
 author:              "Alex Tran"
 maintainer:          "at6g21@soton.ac.uk"
-copyright:           "2023 Author name here"
+copyright:           "2023 Alex Tran"
 
 extra-source-files:
 - README.md
@@ -17,7 +17,7 @@ extra-source-files:
 # To avoid duplicated efforts in documentation and dealing with the
 # complications of embedding Haddock markup inside cabal files, it is
 # common to point users to the README.md file.
-description:         Please see the README on GitHub at <https://github.com/githubuser/Tsl#readme>
+description:         Please see the README on GitHub at <https://github.com/githubuser/Lib#readme>
 
 dependencies:
 - base >= 4.7 && < 5
@@ -42,7 +42,7 @@ build-tools:
 
 executables:
   Tsl-exe:
-    main:                Tsl.hs
+    main:                Main.hs
     source-dirs:         app
     ghc-options:
     - -threaded

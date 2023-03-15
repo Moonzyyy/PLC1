@@ -1,2 +1,1 @@
-Let (x : Tile) = Read "1.tl" In
-Output x
+Output (Interlace (Read "1.tl") (Read "1.tl") )
