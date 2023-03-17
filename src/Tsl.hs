@@ -215,10 +215,10 @@ placeBelow :: Literal -> Literal -> Literal
 placeBelow (Tile x) (Tile y) = Tile (x ++ y)
 
 repeatDown :: Literal -> Literal -> Literal
-repeatDown (Int x) (Tile y) = undefined
+repeatDown (Int x) (Tile ys) = [     y     | repetition <- [0..x], y <- ys ]
 
 repeatRight :: Literal -> Literal -> Literal
-repeatRight (Int x) (Tile y) = undefined
+repeatRight (Int x) (Tile ys) = [concat[     y     | repeat <- [0..x]] | y <- ys   ]
 
 -- | TODO: Add If statements and some form of recursion
 
