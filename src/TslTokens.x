@@ -45,8 +45,8 @@ tokens :-
   Subtile       { \p _ -> TokenSubtile p}
   PlaceRight    { \p _ -> TokenPlaceRight p}
   PlaceBelow    { \p _ -> TokenPlaceBelow p}
-  repeatRight { \p _ -> TokenRepeatRight p}
-  repeatDown { \p _ -> TokenRepeatDown p}
+  RepeatRight { \p _ -> TokenRepeatRight p}
+  RepeatDown { \p _ -> TokenRepeatDown p}
 
 
 
@@ -145,6 +145,12 @@ tokenPosn (TokenElse p) = printPosn p
 tokenPosn (TokenRead p) = printPosn p
 tokenPosn (TokenOutput p) = printPosn p
 tokenPosn (TokenSize p) = printPosn p
+
+tokenPosn (TokenPlaceRight p) = printPosn p
+tokenPosn (TokenPlaceBelow p) = printPosn p
+
+tokenPosn (TokenRepeatRight p) = printPosn p
+tokenPosn (TokenRepeatDown p) = printPosn p
 
 tokenPosn (TokenDef p) = printPosn p
 tokenPosn (TokenComma p) = printPosn p

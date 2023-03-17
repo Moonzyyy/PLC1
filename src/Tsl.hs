@@ -166,10 +166,11 @@ rotate270 :: Literal -> Literal
 rotate270 (Tile x) = rotate90.rotate90.rotate90 $ Tile x
 
 scale :: Literal -> Literal -> Literal
-scale (Int x) (Tile y) = Tile concat [ repeatLine x line | line <- repeatedAcross ]
-                             where repeatedAcross = [ concat [ replicate x element | element <- line] | line <- y ]
-                                   repeatLine 0 line = []
-                                   repeatLine x line = line : repeatLine (x-1) line
+scale (Int x) (Tile y) = undefined
+--scale (Int x) (Tile y) = Tile concat [ repeatLine x line | line <- repeatedAcross ]
+--                             where repeatedAcross = [ concat [ replicate x element | element <- line] | line <- y ]
+--                                   repeatLine 0 line = []
+--                                   repeatLine x line = line : repeatLine (x-1) line
 
 flipX :: Literal -> Literal
 flipX (Tile x) = Tile (reverse x)
@@ -215,10 +216,10 @@ placeBelow :: Literal -> Literal -> Literal
 placeBelow (Tile x) (Tile y) = Tile (x ++ y)
 
 repeatDown :: Literal -> Literal -> Literal
-repeatDown (Int x) (Tile ys) = [     y     | repetition <- [0..x], y <- ys ]
+repeatDown (Int x) (Tile ys) = Tile [     y     | repetition <- [0..x], y <- ys ]
 
 repeatRight :: Literal -> Literal -> Literal
-repeatRight (Int x) (Tile ys) = [concat[     y     | repeat <- [0..x]] | y <- ys   ]
+repeatRight (Int x) (Tile ys) = Tile [concat[     y     | repeat <- [0..x]] | y <- ys   ]
 
 -- | TODO: Add If statements and some form of recursion
 
