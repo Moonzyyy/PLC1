@@ -165,9 +165,11 @@ rotate180 (Tile x) = rotate90.rotate90 $ Tile x
 rotate270 :: Literal -> Literal
 rotate270 (Tile x) = rotate90.rotate90.rotate90 $ Tile x
 
---have scaled across row, but havent scaled down yet
 scale :: Literal -> Literal -> Literal
-scale (Int x) (Tile y) = Tile [ concat [ replicate x element | element <- line] | line <- y ]
+scale (Int x) (Tile y) = Tile concat [ repeatLine x line | line <- repeatedAcross ]
+                             where repeatedAcross = [ concat [ replicate x element | element <- line] | line <- y ]
+                                   repeatLine 0 line = []
+                                   repeatLine x line = line : repeatLine (x-1) line
 
 flipX :: Literal -> Literal
 flipX (Tile x) = Tile (reverse x)
