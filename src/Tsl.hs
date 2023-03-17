@@ -169,10 +169,10 @@ scale :: Literal -> Literal -> Literal
 scale (Int x) (Tile y) = undefined
 
 flipX :: Literal -> Literal
-flipX (Tile x) = undefined
+flipX (Tile x) = Tile (reverse x)
 
 flipY :: Literal -> Literal
-flipY (Tile x) = undefined
+flipY (Tile xs) = Tile ([ reverse x | x <- xs])
 
 blank :: Literal -> Literal
 blank (Int x) = undefined
