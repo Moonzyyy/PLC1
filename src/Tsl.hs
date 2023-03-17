@@ -2,11 +2,13 @@ module Tsl
     ( someFunc
     ) where
 
+
 import TslTokens
 import TslGrammar
 import TslType
 import System.Environment
 import Data.Maybe (fromJust, isNothing, fromMaybe)
+import Data.List
 
 someFunc :: IO ()
 someFunc = do
@@ -157,7 +159,7 @@ interlace (Tile x) (Tile y) = undefined
 
 
 rotate90 :: Literal -> Literal
-rotate90 (Tile x) = undefined
+rotate90 (Tile x) = Tile(transpose(reverse x))
 rotate180 :: Literal -> Literal
 rotate180 (Tile x) = rotate90.rotate90 $ Tile x
 rotate270 :: Literal -> Literal
@@ -168,6 +170,7 @@ scale (Int x) (Tile y) = undefined
 
 flipX :: Literal -> Literal
 flipX (Tile x) = undefined
+
 flipY :: Literal -> Literal
 flipY (Tile x) = undefined
 
@@ -200,11 +203,13 @@ lessThanEquals (Int x) (Int y) = Bool (x<=y)
 subTile :: Literal -> Literal -> Literal -> Literal -> Literal
 subTile (Int n) (Int x) (Int y) (Tile t) = undefined
 
+--make error checking
 placeRight :: Literal -> Literal -> Literal
-placeRight (Tile x) (Tile y) = undefined
+placeRight (Tile x) (Tile y) = Tile (zipWith (++) x y)
 
+--make error checking
 placeBelow :: Literal -> Literal -> Literal
-placeBelow (Tile x) (Tile y) = undefined
+placeBelow (Tile x) (Tile y) = Tile (x ++ y)
 
 repeatDown :: Literal -> Literal -> Literal
 repeatDown (Int x) (Tile y) = undefined
