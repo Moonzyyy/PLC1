@@ -40,6 +40,8 @@ import TslTokens
   SUBTILE { TokenSubtile _ }
   PLACERIGHT { TokenPlaceRight _ }
   PLACEBELOW { TokenPlaceBelow _ }
+  REPEATRIGHT { TokenRepeatRight _ }
+  REPEATDOWN { TokenRepeatDown _ }
 
 
 
@@ -88,6 +90,8 @@ Exp : Literal { Lit $1 }
     | Exp PLUS Exp {Plus $1 $3}
     | SIZE Exp {Size $2}
     | LPAREN Exp RPAREN { $2 }
+    | REPEATRIGHT Exp Exp {RepeatRight $2 $3}
+    | REPEATDOWN Exp Exp {RepeatDown $2 $3}
     | var { Var $1 }
 
 
@@ -129,6 +133,8 @@ data Exp =
          | Less Exp Exp
          | GreaterEqual Exp Exp
          | LessEqual Exp Exp
+         | RepeatRight Exp Exp
+         | RepeatDown Exp Exp
 
          | Lit Literal
 

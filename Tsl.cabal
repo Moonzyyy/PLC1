@@ -7,8 +7,8 @@ cabal-version: 1.12
 name:           Tsl
 version:        0.1.0.0
 description:    Please see the README on GitHub at <https://github.com/githubuser/Lib#readme>
-homepage:       https://github.com/githubuser/Lib#readme
-bug-reports:    https://github.com/githubuser/Lib/issues
+homepage:       https://github.com/turtl3/Tsl#readme
+bug-reports:    https://github.com/turtl3/Tsl/issues
 author:         Alex Tran
 maintainer:     at6g21@soton.ac.uk
 copyright:      2023 Alex Tran
@@ -21,7 +21,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/Lib
+  location: https://github.com/turtl3/Tsl
 
 library
   exposed-modules:

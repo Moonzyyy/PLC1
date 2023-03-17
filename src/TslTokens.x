@@ -45,6 +45,9 @@ tokens :-
   Subtile       { \p _ -> TokenSubtile p}
   PlaceRight    { \p _ -> TokenPlaceRight p}
   PlaceBelow    { \p _ -> TokenPlaceBelow p}
+  repeatRight { \p _ -> TokenRepeatRight p}
+  repeatDown { \p _ -> TokenRepeatDown p}
+
 
 
 
@@ -106,6 +109,8 @@ data Token =
   | TokenSubtile AlexPosn
   | TokenPlaceRight AlexPosn
   | TokenPlaceBelow AlexPosn
+  | TokenRepeatRight AlexPosn
+  | TokenRepeatDown AlexPosn
 
   | TokenLParen AlexPosn
   | TokenRParen AlexPosn

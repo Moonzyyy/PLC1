@@ -1,1 +1,1 @@
-Output (Interlace (Read "1.tl") (Read "1.tl") )
+Output (repeatRight 6 (Read "1.tl") )

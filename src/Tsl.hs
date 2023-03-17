@@ -15,6 +15,7 @@ someFunc = do
            let parser = alexScanTokens(fileContent)
            print parser
            let grammar = parseTsl(parser)
+           print grammar
            let typeCheck = typeOf [] grammar
            evalLoop (grammar, [], [])
            return ()
@@ -95,10 +96,6 @@ eval (Lit v, env, ReadHole env':cons) = do t <- readTl v
 eval (Output e, env, cons) = return (e, env, OutputHole env:cons)
 eval (Lit v, env, OutputHole env':cons) = do output v
                                              return (END, env', cons)
-
--- | Evaluate Size function
-eval (Size e, env, cons) = return (e, env, FunctionHole size env:cons)
-
 -- | Evaluate functions
 eval (Lit v, env, FunctionHole4 f e1 e2 e3 env':cons) = return (e1, env', FunctionHole3 (f v) e2 e3 env':cons)
 eval (Lit v, env, FunctionHole3 f e1 e2 env':cons) = return (e1, env', FunctionHole2 (f v) e2 env':cons)
@@ -106,14 +103,14 @@ eval (Lit v, env, FunctionHole2 f e env':cons) = return (e, env', FunctionHole (
 eval (Lit v, env, FunctionHole f env':cons) = return (Lit (f v) , env', cons)
 -- | Evaluates Interlace function
 eval (Interlace e1 e2, env, cons) = return (e1, env, FunctionHole2 interlace e2 env:cons)
-  where
-    f = InterlaceHole1 e2 env : cons
+
 -- | Evaluates let statement (\x -> e2) . e1
 eval (Let v _ e1 e2, env, cons) = return (e1, env, f:cons)
   where
     c = Cl v e2 env
     f = AppHole c
 
+eval (Size e, env, cons) = return (e, env, FunctionHole size env:cons)
 eval (Rotate90 e, env, cons) = return (e, env, FunctionHole rotate90 env:cons)
 eval (Rotate180 e, env, cons) = return (e, env, FunctionHole rotate180 env:cons)
 eval (Rotate270 e, env, cons) = return (e, env, FunctionHole rotate270 env:cons)
@@ -137,7 +134,8 @@ eval (LessEqual e1 e2, env, cons) = return (e1, env, FunctionHole2 lessThanEqual
 eval (Subtile e1 e2 e3 e4, env, cons) = return (e1, env, FunctionHole4 subTile e2 e3 e4 env:cons)
 eval (PlaceRight e1 e2, env, cons) = return (e1, env, FunctionHole2 placeRight e2 env:cons)
 eval (PlaceBelow e1 e2, env, cons) = return (e1, env, FunctionHole2 placeBelow e2 env:cons)
-
+eval (RepeatDown  e1 e2, env, cons) = return (e1, env, FunctionHole2 repeatDown e2 env:cons)
+eval (RepeatRight e1 e2, env, cons) = return (e1, env, FunctionHole2 repeatRight e2 env:cons)
 eval _ = error "Runtime evaluation error"
 
 -- | TODO: Add error handling for when length =/= height
@@ -161,9 +159,9 @@ interlace (Tile x) (Tile y) = undefined
 rotate90 :: Literal -> Literal
 rotate90 (Tile x) = undefined
 rotate180 :: Literal -> Literal
-rotate180 (Tile x) = rotate90 $ rotate90 $ Tile x
+rotate180 (Tile x) = rotate90.rotate90 $ Tile x
 rotate270 :: Literal -> Literal
-rotate270 (Tile x) = rotate90 $ rotate90 $ rotate90 $ Tile x
+rotate270 (Tile x) = rotate90.rotate90.rotate90 $ Tile x
 
 scale :: Literal -> Literal -> Literal
 scale (Int x) (Tile y) = undefined
@@ -207,6 +205,12 @@ placeRight (Tile x) (Tile y) = undefined
 
 placeBelow :: Literal -> Literal -> Literal
 placeBelow (Tile x) (Tile y) = undefined
+
+repeatDown :: Literal -> Literal -> Literal
+repeatDown (Int x) (Tile y) = undefined
+
+repeatRight :: Literal -> Literal -> Literal
+repeatRight (Int x) (Tile y) = undefined
 
 -- | TODO: Add If statements and some form of recursion
 
