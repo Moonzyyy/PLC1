@@ -170,6 +170,7 @@ scale (Int x) (Tile y) = undefined
 
 flipX :: Literal -> Literal
 flipX (Tile x) = undefined
+
 flipY :: Literal -> Literal
 flipY (Tile x) = undefined
 
@@ -202,11 +203,13 @@ lessThanEquals (Int x) (Int y) = Bool (x<=y)
 subTile :: Literal -> Literal -> Literal -> Literal -> Literal
 subTile (Int n) (Int x) (Int y) (Tile t) = undefined
 
+--make error checking
 placeRight :: Literal -> Literal -> Literal
-placeRight (Tile x) (Tile y) = undefined
+placeRight (Tile x) (Tile y) = Tile (zipWith (++) x y)
 
+--make error checking
 placeBelow :: Literal -> Literal -> Literal
-placeBelow (Tile x) (Tile y) = undefined
+placeBelow (Tile x) (Tile y) = Tile (x ++ y)
 
 -- | TODO: Add If statements and some form of recursion
 
