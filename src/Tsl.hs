@@ -2,11 +2,13 @@ module Tsl
     ( someFunc
     ) where
 
+
 import TslTokens
 import TslGrammar
 import TslType
 import System.Environment
 import Data.Maybe (fromJust, isNothing, fromMaybe)
+import Data.List
 
 someFunc :: IO ()
 someFunc = do
@@ -159,7 +161,7 @@ interlace (Tile x) (Tile y) = undefined
 
 
 rotate90 :: Literal -> Literal
-rotate90 (Tile x) = undefined
+rotate90 (Tile x) = Tile(transpose(reverse x))
 rotate180 :: Literal -> Literal
 rotate180 (Tile x) = rotate90 $ rotate90 $ Tile x
 rotate270 :: Literal -> Literal
