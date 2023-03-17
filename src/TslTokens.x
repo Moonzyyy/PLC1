@@ -32,6 +32,7 @@ tokens :-
   Scale         { \p _ -> TokenScale p}
   FlipX          { \p _ -> TokenFlipX p}
   FlipY          { \p _ -> TokenFlipY p}
+  FlipXY         { \p _ -> TokenFlipXY p}
   Blank         { \p _ -> TokenBlank p}
   And           { \p _ -> TokenAnd p}
   Or            { \p _ -> TokenOr p}
@@ -47,6 +48,7 @@ tokens :-
   PlaceBelow    { \p _ -> TokenPlaceBelow p}
   repeatRight { \p _ -> TokenRepeatRight p}
   repeatDown { \p _ -> TokenRepeatDown p}
+
 
 
 
@@ -96,6 +98,7 @@ data Token =
   | TokenScale AlexPosn
   | TokenFlipX AlexPosn
   | TokenFlipY AlexPosn
+  | TokenFlipXY AlexPosn
   | TokenBlank AlexPosn
   | TokenAnd AlexPosn
   | TokenOr AlexPosn

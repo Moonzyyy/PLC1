@@ -1,1 +1,1 @@
-Output (Interlace (Read "1.tl") (Read "1.tl") )
+Output (FlipXY (Read "1.tl" ))
