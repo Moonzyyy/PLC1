@@ -1,0 +1,17 @@
+Index: src/Lib.hs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module Lib\r\n    ( someFunc\r\n    ) where\r\n\r\nimport AlexTran\r\nimport HappyTran\r\nimport System.Environment\r\nimport Control.Monad\r\n\r\nsomeFunc :: IO ()\r\nsomeFunc = do\r\n           (fileName:_) <- getArgs\r\n           fileContent <- readFile fileName\r\n           let parser = alexScanTokens(fileContent)\r\n           putStrLn(show(parser))\r\n           let grammar = parseCalc(parser)\r\n           putStrLn(show(grammar))\r\n           putStrLn(show(reduce (grammar)))\r\n           return ()\r\n\r\nreduce :: Exp -> Maybe Exp\r\nreduce (Plus (Int n) (Int m)) = Just $ Int (n+m)\r\nreduce (LessThan(Int n) (Int m)) | n < m = Just $ Bool True\r\n                                 | otherwise = Just $ Bool False\r\nreduce (GreaterThan(Int n) (Int m)) | n > m = Just $ Bool True\r\n                                    | otherwise = Just $ Bool False\r\n\r\n\r\n\r\n\r\n                                 \r\nreduce (Plus e1 e2) | newE1 /= Nothing = liftM2 Plus newE1 (Just e2)\r\n                            | otherwise = liftM (Plus e1) newE2\r\n                            where newE1 = reduce e1\r\n                                  newE2 = reduce e2\r\n
+===================================================================
+diff --git a/src/Lib.hs b/src/Lib.hs
+--- a/src/Lib.hs	
++++ b/src/Lib.hs	
+@@ -30,6 +30,7 @@
+ 
+                                  
+ reduce (Plus e1 e2) | newE1 /= Nothing = liftM2 Plus newE1 (Just e2)
+-                            | otherwise = liftM (Plus e1) newE2
++                    | otherwise = liftM (Plus e1) newE2
+                             where newE1 = reduce e1
+                                   newE2 = reduce e2
++                    
