@@ -218,10 +218,10 @@ repeatDown :: Literal -> Literal -> Literal
 repeatDown (Int x) (Tile ys) = Tile  [     y     | repetition <- [0..x], y <- ys ]
 
 repeatRight :: Literal -> Literal -> Literal
-repeatRight (Int x) (Tile ys) = Tile (concat[[     y     | repeat <- [0..x]] | y <- ys   ])
+repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [0..x]] | y <- ys   ])
 
 flipXY :: Literal -> Literal
-flipXY (Tile x) = undefined
+flipXY (Tile x) = flipY $ flipX (Tile x) 
 
 -- | TODO: Add If statements and some form of recursion
 
