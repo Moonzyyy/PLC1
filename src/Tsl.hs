@@ -187,7 +187,7 @@ orT :: Literal -> Literal -> Literal
 orT (Tile x) (Tile y) = undefined
 
 notT :: Literal -> Literal
-notT (Tile x) = undefined
+notT (Tile xs) = Tile [[  if y == '1' then '0' else '1'| y <- x] | x <-xs ]
 
 add :: Literal -> Literal -> Literal
 add (Int x) (Int y) = (Int (x+y))
@@ -221,7 +221,7 @@ repeatRight :: Literal -> Literal -> Literal
 repeatRight (Int x) (Tile ys) = Tile (concat[[     y     | repeat <- [0..x]] | y <- ys   ])
 
 flipXY :: Literal -> Literal
-flipXY (Tile x) = undefined
+flipXY (Tile x) = flipY $ flipX (Tile x) 
 
 -- | TODO: Add If statements and some form of recursion
 
