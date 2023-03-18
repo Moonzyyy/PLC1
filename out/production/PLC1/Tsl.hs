@@ -203,8 +203,9 @@ lessThan (Int x) (Int y) = Bool (x<y)
 lessThanEquals :: Literal -> Literal -> Literal
 lessThanEquals (Int x) (Int y) = Bool (x<=y)
 
+--size, x position, y position, tile
 subTile :: Literal -> Literal -> Literal -> Literal -> Literal
-subTile (Int n) (Int x) (Int y) (Tile t) = undefined
+subTile (Int n) (Int x) (Int y) (Tile t) = Tile [[  t !! yPos !! xPos |   xPos <- [x..(x+n-1)] ] | yPos <- [y..(y+n-1)]]
 
 --make error checking
 placeRight :: Literal -> Literal -> Literal
