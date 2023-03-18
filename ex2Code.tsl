@@ -1,11 +1,10 @@
-Output (
-   PlaceBelow
-      (
-         PlaceRight (Read "ex2Tile1.tl") (Rotate90 (Read "ex2Tile1.tl"))
-      )
-      (
-         PlaceRight (Rotate270 (Read "ex2Tile1.tl")) (Rotate180 (Read "ex2Tile1.tl"))
-      )
-)
-
-
+Let (tile:Tile) = Read "ex2Tile1.tl" In
+Let (scale:Int) = 3 In
+Let (base:Tile) =  PlaceBelow (PlaceRight (tile) (Rotate90 (tile)))  (PlaceRight (Rotate270 (tile)) (Rotate180 (tile))) In
+Let (scaled:Tile) = Scale scale base In
+Let (num:Int) = 5 In
+Let (wholeLine:Tile) = RepeatRight num base In
+Let (sidePanel:Tile) = RepeatDown scale base In
+Let (middle:Tile) = PlaceRight (sidePanel) (PlaceRight scaled sidePanel) In
+Let (outputTile:Tile) = PlaceBelow (wholeLine) (PlaceBelow middle wholeLine) In
+Output outputTile
