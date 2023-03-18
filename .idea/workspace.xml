@@ -4,11 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Updating so I can run it">
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Added less than and great than to the grammar">
+      <change afterPath="$PROJECT_DIR$/ex1Tile1.tl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex1Tile2.tl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex3Tile1.tl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex4Tile1.tl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ex4Tile3.tl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/code.tsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex2Code.tsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ex1Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex1Code.tsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tile1.tl" beforeDir="false" afterPath="$PROJECT_DIR$/tile1.tl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex3Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex3Code.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +67,7 @@
       <module name="plc1stack" />
       <option name="allowRunningInParallel" value="false" />
       <option name="executableName" value="Tsl-exe" />
-      <option name="programArgs" value="code.tsl" />
+      <option name="programArgs" value="ex5Code.tsl" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -93,6 +98,9 @@
       <workItem from="1679055087596" duration="1320000" />
       <workItem from="1679069303079" duration="75000" />
       <workItem from="1679084191151" duration="5594000" />
+      <workItem from="1679143578096" duration="280000" />
+      <workItem from="1679144042133" duration="324000" />
+      <workItem from="1679158438535" duration="4570000" />
     </task>
     <task id="LOCAL-00001" summary="Alex and Happy are finally happy!">
       <created>1678640981965</created>
