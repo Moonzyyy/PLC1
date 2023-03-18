@@ -1,1 +1,1 @@
-Let y = (Read "tile1.tl")
+Let (y:Tile) = (Read "tile1.tl") In Output(y)
