@@ -1,1 +1,3 @@
-Let (y:Tile) = (Read "tile1.tl") In Output(y)
+Let (t:Tile) = (Read "tile1.tl") In
+Let (t1:Tile) = (PlaceRight(PlaceRight(t)(FlipY t)) (Blank 3)) In
+Let (t2:Tile) = (PlaceRight (PlaceRight(Blank 3) (FlipX t)) (FlipXY t)) In Output(RepeatDown 15 (PlaceBelow (t1) (t2)))

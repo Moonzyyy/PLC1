@@ -178,7 +178,7 @@ flipY :: Literal -> Literal
 flipY (Tile xs) = Tile ([ reverse x | x <- xs])
 
 blank :: Literal -> Literal
-blank (Int x) = undefined
+blank (Int x) = Tile [[     '0'         | iterateX <- [1..x]] | iterateY <- [1..x]]
 
 andT :: Literal -> Literal -> Literal
 andT (Tile x) (Tile y) = undefined
@@ -221,7 +221,7 @@ repeatRight :: Literal -> Literal -> Literal
 repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [0..x]] | y <- ys   ])
 
 flipXY :: Literal -> Literal
-flipXY (Tile x) = flipY $ flipX (Tile x) 
+flipXY (Tile x) = flipY $ flipX (Tile x)
 
 -- | TODO: Add If statements and some form of recursion
 
