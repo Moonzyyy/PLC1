@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Added less than and great than to the grammar">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/lib" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/bin/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/bin/Tsl-exe.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/code.tsl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tsl.hs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tile2.tl" beforeDir="false" afterPath="$PROJECT_DIR$/tile2.tl" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="CEK-Implementation" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="2MvArUzQgEpdYwiaPSXvs58DP9L" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="openjdk-19" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\PLC1" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="exec" type="HaskellStackConfigurationType" factoryName="Haskell Stack Runner" show_console_on_std_err="false" show_console_on_std_out="false">
+      <module name="plc1stack" />
+      <option name="allowRunningInParallel" value="false" />
+      <option name="executableName" value="Tsl-exe" />
+      <option name="programArgs" value="code.tsl" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <option name="stackArgs" value="" />
+      <option name="workingDirPath" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="" />
+      <created>1678637881304</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678637881304</updated>
+      <workItem from="1678637882584" duration="213000" />
+      <workItem from="1678638296054" duration="4311000" />
+      <workItem from="1678720117647" duration="2022000" />
+      <workItem from="1678745009509" duration="720000" />
+      <workItem from="1678745880984" duration="31000" />
+      <workItem from="1679049454425" duration="525000" />
+      <workItem from="1679050006249" duration="426000" />
+      <workItem from="1679050542168" duration="3824000" />
+      <workItem from="1679055087596" duration="1320000" />
+      <workItem from="1679069303079" duration="75000" />
+      <workItem from="1679084191151" duration="5594000" />
+    </task>
+    <task id="LOCAL-00001" summary="Alex and Happy are finally happy!">
+      <created>1678640981965</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1678640981965</updated>
+    </task>
+    <task id="LOCAL-00002" summary="we are doing it!">
+      <created>1678643192000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1678643192000</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added less than and great than to the grammar">
+      <created>1678745548856</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678745548856</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Alex and Happy are finally happy!" />
+    <MESSAGE value="we are doing it!" />
+    <MESSAGE value="Added less than and great than to the grammar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added less than and great than to the grammar" />
+  </component>
+</project>

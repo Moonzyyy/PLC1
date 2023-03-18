@@ -32,6 +32,7 @@ tokens :-
   Scale         { \p _ -> TokenScale p}
   FlipX          { \p _ -> TokenFlipX p}
   FlipY          { \p _ -> TokenFlipY p}
+  FlipXY         { \p _ -> TokenFlipXY p}
   Blank         { \p _ -> TokenBlank p}
   And           { \p _ -> TokenAnd p}
   Or            { \p _ -> TokenOr p}
@@ -45,8 +46,9 @@ tokens :-
   Subtile       { \p _ -> TokenSubtile p}
   PlaceRight    { \p _ -> TokenPlaceRight p}
   PlaceBelow    { \p _ -> TokenPlaceBelow p}
-  repeatRight { \p _ -> TokenRepeatRight p}
-  repeatDown { \p _ -> TokenRepeatDown p}
+  RepeatRight { \p _ -> TokenRepeatRight p}
+  RepeatDown { \p _ -> TokenRepeatDown p}
+
 
 
 
@@ -96,6 +98,7 @@ data Token =
   | TokenScale AlexPosn
   | TokenFlipX AlexPosn
   | TokenFlipY AlexPosn
+  | TokenFlipXY AlexPosn
   | TokenBlank AlexPosn
   | TokenAnd AlexPosn
   | TokenOr AlexPosn
@@ -145,6 +148,12 @@ tokenPosn (TokenElse p) = printPosn p
 tokenPosn (TokenRead p) = printPosn p
 tokenPosn (TokenOutput p) = printPosn p
 tokenPosn (TokenSize p) = printPosn p
+
+tokenPosn (TokenPlaceRight p) = printPosn p
+tokenPosn (TokenPlaceBelow p) = printPosn p
+
+tokenPosn (TokenRepeatRight p) = printPosn p
+tokenPosn (TokenRepeatDown p) = printPosn p
 
 tokenPosn (TokenDef p) = printPosn p
 tokenPosn (TokenComma p) = printPosn p

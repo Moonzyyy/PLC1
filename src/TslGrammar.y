@@ -28,6 +28,7 @@ import TslTokens
   SCALE { TokenScale _ }
   FLIPX { TokenFlipX _ }
   FLIPY { TokenFlipY _ }
+  FLIPXY { TokenFlipXY _ }
   BLANK { TokenBlank _ }
   AND { TokenAnd _ }
   OR { TokenOr _ }
@@ -73,6 +74,7 @@ Exp : Literal { Lit $1 }
     | SCALE Exp Exp {Scale $2 $3}
     | FLIPX Exp {FlipX $2}
     | FLIPY Exp {FlipY $2}
+    | FLIPXY Exp {FlipXY $2}
     | BLANK Exp {Blank $2}
     | SUBTILE Exp Exp Exp Exp {Subtile $2 $3 $4 $5}
     | PLACERIGHT Exp Exp {PlaceRight $2 $3}
@@ -122,6 +124,7 @@ data Exp =
          | Scale Exp Exp
          | FlipX Exp
          | FlipY Exp
+         | FlipXY Exp
          | Blank Exp
          | Subtile Exp Exp Exp Exp
          | PlaceRight Exp Exp
