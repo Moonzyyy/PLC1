@@ -42,12 +42,12 @@ getBinDir, getLibDir, getDynLibDir, getDataDir, getLibexecDir, getSysconfDir :: 
 
 
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
-bindir     = "C:\\PLC1\\.stack-work\\install\\17de8b66\\bin"
-libdir     = "C:\\PLC1\\.stack-work\\install\\17de8b66\\lib\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z"
-dynlibdir  = "C:\\PLC1\\.stack-work\\install\\17de8b66\\lib\\x86_64-windows-ghc-9.2.7"
-datadir    = "C:\\PLC1\\.stack-work\\install\\17de8b66\\share\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0"
-libexecdir = "C:\\PLC1\\.stack-work\\install\\17de8b66\\libexec\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0"
-sysconfdir = "C:\\PLC1\\.stack-work\\install\\17de8b66\\etc"
+bindir     = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\bin"
+libdir     = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\lib\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z"
+dynlibdir  = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\lib\\x86_64-windows-ghc-9.2.7"
+datadir    = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\share\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0"
+libexecdir = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\libexec\\x86_64-windows-ghc-9.2.7\\Tsl-0.1.0.0"
+sysconfdir = "C:\\Users\\hgaze\\Documents\\1 Documents\\Y2S2\\PLC\\coursework\\PLC1\\.stack-work\\install\\c569bc22\\etc"
 
 getBinDir     = catchIO (getEnv "Tsl_bindir")     (\_ -> return bindir)
 getLibDir     = catchIO (getEnv "Tsl_libdir")     (\_ -> return libdir)
