@@ -1,0 +1,11 @@
+Output (
+   PlaceBelow
+      (
+         PlaceRight (Read "ex2Tile1.tl") (Rotate90 (Read "ex2Tile1.tl"))
+      )
+      (
+         PlaceRight (Rotate270 (Read "ex2Tile1.tl")) (Rotate180 (Read "ex2Tile1.tl"))
+      )
+)
+
+

@@ -1,4 +1,4 @@
-Let (t:Tile) = (Read "tile1.tl") In
+Let (t:Tile) = (Read "ex3Tile1.tl") In
 Let (t1:Tile) = (PlaceRight(PlaceRight(t)(FlipY t)) (Blank 3)) In
 Let (topTile:Tile) = (RepeatRight 9 (PlaceRight (t1) (FlipY t1))) In
 Let (t2:Tile) = (PlaceRight (PlaceRight(Blank 3) (FlipX t)) (FlipXY t)) In
