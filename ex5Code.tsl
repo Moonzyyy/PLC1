@@ -1,5 +1,6 @@
 Let (t:Tile) = (Read "ex5Tile1.tl") In
-Let (subTile1:Tile) = RepeatRight 2 (Subtile (6) (0) (0) (t)) In
-Let (subTile2:Tile) = RepeatRight 2 (Subtile (6) (2) (2) (t)) In
-Let (subTile3:Tile) = RepeatRight 2 (Subtile (6) (4) (4) (t)) In
-Let (totalSubTile:Tile) = PlaceBelow (PlaceBelow subTile1 subTile2) subTile3 In Output(totalSubTile)
+Let (subTile1:Tile) = RepeatRight 3 (Subtile (6) (0) (0) (t)) In
+Let (subTile2:Tile) = RepeatRight 3 (Subtile (6) (2) (2) (t)) In
+Let (subTile3:Tile) = RepeatRight 3 (Subtile (6) (4) (4) (t)) In
+Let (totalSubTile:Tile) = PlaceBelow (PlaceBelow subTile1 subTile2) subTile3 In
+Output(totalSubTile)

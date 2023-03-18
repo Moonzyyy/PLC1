@@ -1,1 +1,5 @@
-Output (RepeatDown 31 (PlaceBelow (RepeatRight 31 (PlaceRight (Read "ex1Tile1.tl") (Read "ex1Tile2.tl"))) (RepeatRight 31 (PlaceRight (Read "ex1Tile2.tl") (Read "ex1Tile1.tl")))))
+Let (tile1:Tile) = Read "ex1Tile1.tl" In
+Let (tile2:Tile) = Read "ex1Tile2.tl" In
+Let (line1:Tile) = RepeatRight 32 (PlaceRight (tile1) (tile2)) In
+Let (line2:Tile) = RepeatRight 32 (PlaceRight (tile2) (tile1)) In
+Output (RepeatDown 32 (PlaceBelow (line1) (line2)))

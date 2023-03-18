@@ -1,6 +1,6 @@
 Let (t:Tile) = (Read "ex3Tile1.tl") In
 Let (t1:Tile) = (PlaceRight(PlaceRight(t)(FlipY t)) (Blank 3)) In
-Let (topTile:Tile) = (RepeatRight 9 (PlaceRight (t1) (FlipY t1))) In
+Let (topTile:Tile) = (RepeatRight 10 (PlaceRight (t1) (FlipY t1))) In
 Let (t2:Tile) = (PlaceRight (PlaceRight(Blank 3) (FlipX t)) (FlipXY t)) In
-Let (bottomTile:Tile) = (RepeatRight 9 (PlaceRight (t2) (FlipY t2))) In
-Let (entireTile:Tile) = (RepeatDown 29 (PlaceBelow (topTile) (bottomTile))) In Output(entireTile)
+Let (bottomTile:Tile) = (RepeatRight 10 (PlaceRight (t2) (FlipY t2))) In
+Let (entireTile:Tile) = (RepeatDown 30 (PlaceBelow (topTile) (bottomTile))) In Output(entireTile)
