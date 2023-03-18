@@ -27,6 +27,7 @@ type CEK = (Control, Environment, Continuation)
 type Control = Exp
 type Environment = [(String,Exp)]
 data Frame = HoleApp Exp Environment
+ | ForHole Exp Environment
  | InterlaceHole Literal Environment
  | InterlaceHole1 Exp Environment
  | AppHole Exp
@@ -71,9 +72,6 @@ data Frame = HoleApp Exp Environment
 
 type Continuation = [Frame]
 
-unpack :: Exp -> (Exp,Environment)
---unpack (Cl x e env1) = ((Lam x e) , env1)
-unpack _ = error "Cannont unpack closure"
 
 -- | Rule 1 of the CEK machine
 eval :: CEK -> IO CEK
@@ -112,6 +110,7 @@ eval (Let v _ e1 e2, env, cons) = return (e1, env, f:cons)
     c = Cl v e2 env
     f = AppHole c
 
+eval (For e1 e2, env, cons) = return (e1, env, ForHole  e2 env:cons)
 eval (Size e, env, cons) = return (e, env, FunctionHole size env:cons)
 eval (Rotate90 e, env, cons) = return (e, env, FunctionHole rotate90 env:cons)
 eval (Rotate180 e, env, cons) = return (e, env, FunctionHole rotate180 env:cons)
@@ -223,6 +222,11 @@ repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [1..x]] | y
 
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
+
+for :: Literal -> Exp -> Exp
+for (Int 0) e = undefined
+for (Int n) e = undefined 
+
 
 -- | TODO: Add If statements and some form of recursion
 

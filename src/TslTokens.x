@@ -15,6 +15,7 @@ tokens :-
   "--".*        ;
 
   Let           { \p _ -> TokenLet p}
+  For          { \p _ -> TokenFor p}
   In            { \p _ -> TokenIn p}
 
   If            { \p _ -> TokenIf p}
@@ -79,6 +80,7 @@ tokens :-
 -- The token type:
 data Token =
   TokenLet AlexPosn
+  | TokenFor AlexPosn
   | TokenColon AlexPosn
   | TokenAssign AlexPosn
   | TokenIn AlexPosn
