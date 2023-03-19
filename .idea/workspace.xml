@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/testCode.tsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_17_2023_10_46_AM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_17_2023_10_46_AM__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_17_2023_9_04_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_17_2023_9_04_PM__Changes_.xml" afterDir="false" />
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="ForLoop Complement">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Paths_Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Paths_Tsl.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Paths_Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Paths_Tsl.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/autogen/Paths_Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/autogen/Paths_Tsl.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/autogen/cabal_macros.h" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/autogen/cabal_macros.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hi" afterDir="false" />
@@ -28,18 +19,10 @@
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/autogen/Paths_Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/autogen/Paths_Tsl.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/autogen/cabal_macros.h" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/autogen/cabal_macros.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/package.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/package.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/setup-config" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/setup-config" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/exe-Tsl-exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/exe-Tsl-exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/lib" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/890b0f43badc4fba649c7bdc58d2368e27463d4a888871ee07173ccd47a04261/lib" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-project-root" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-project-root" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/bin/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/bin/Tsl-exe.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Paths_Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Paths_Tsl.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslGrammar.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslGrammar.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslTokens.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslTokens.hi" afterDir="false" />
@@ -47,16 +30,14 @@
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/pkgdb/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/pkgdb/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/17de8b66/pkgdb/package.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/17de8b66/pkgdb/package.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/stack.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/stack.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ex1Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex1Code.tsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex4Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex4Code.tsl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex5Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex5Code.tsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/TslGrammar.y" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/TslGrammar.y" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/TslTokens.x" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/TslTokens.x" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tsl.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TslGrammar.y" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslGrammar.y" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TslTokens.x" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslTokens.x" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testCode.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/testCode.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679173750308</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="ForLoop Complement">
+      <created>1679244887615</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679244887615</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,6 +214,7 @@
     <MESSAGE value="Updating so I can run it" />
     <MESSAGE value="Fixed repeatDown and repeatRight to use 1..x and finished ex2Code" />
     <MESSAGE value="1,2,3,5 complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="1,2,3,5 complete" />
+    <MESSAGE value="ForLoop Complement" />
+    <option name="LAST_COMMIT_MESSAGE" value="ForLoop Complement" />
   </component>
 </project>

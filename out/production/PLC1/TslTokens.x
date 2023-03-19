@@ -52,9 +52,8 @@ tokens :-
   RepeatRight { \p _ -> TokenRepeatRight p}
   RepeatDown { \p _ -> TokenRepeatDown p}
 
-
-
-
+  Swap { \p _ -> TokenSwap p }
+  Change { \p _ -> TokenChange p}
 
   \:            { \p _ -> TokenColon p}
   \=            { \p _ -> TokenAssign p}
@@ -121,6 +120,9 @@ data Token =
   | TokenRepeatRight AlexPosn
   | TokenRepeatDown AlexPosn
 
+  | TokenSwap AlexPosn
+  | TokenChange AlexPosn
+
   | TokenLParen AlexPosn
   | TokenRParen AlexPosn
 
@@ -164,6 +166,9 @@ tokenPosn (TokenPlaceBelow p) = printPosn p
 
 tokenPosn (TokenRepeatRight p) = printPosn p
 tokenPosn (TokenRepeatDown p) = printPosn p
+
+tokenPosn (TokenSwap p) = printPosn p
+tokenPosn (TokenChange p) = printPosn p
 
 tokenPosn (TokenDef p) = printPosn p
 tokenPosn (TokenComma p) = printPosn p

@@ -47,7 +47,8 @@ import TslTokens
   REPEATRIGHT { TokenRepeatRight _ }
   REPEATDOWN { TokenRepeatDown _ }
 
-
+ SWAP { TokenSwap _ }
+ CHANGE { TokenChange _ }
 
   LPAREN { TokenLParen _ }
   RPAREN { TokenRParen _ }
@@ -71,6 +72,7 @@ import TslTokens
 Exp : Literal { Lit $1 }
     | LET LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Let $3 $5 $8 $10}
     | STATIC LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Static $3 $5 $8 $10}
+    | var ASSIGN Exp
     | FOR Exp TO Exp IN Exp IN Exp {For $2 $4 $6 $8}
     | INTERLACE Exp Exp {Interlace $2 $3}
     | ROTATE90 Exp {Rotate90 $2}
@@ -99,6 +101,8 @@ Exp : Literal { Lit $1 }
     | LPAREN Exp RPAREN { $2 }
     | REPEATRIGHT Exp Exp {RepeatRight $2 $3}
     | REPEATDOWN Exp Exp {RepeatDown $2 $3}
+    | SWAP Exp Exp Exp {Swap $2 $3 $4}
+    | CHANGE Exp Exp Exp {Change $2 $3 $4}
     | var { Var $1 }
 
 
@@ -145,6 +149,9 @@ data Exp =
          | LessEqual Exp Exp
          | RepeatRight Exp Exp
          | RepeatDown Exp Exp
+
+	 | Swap Exp Exp Exp
+	 | Change Exp Exp Exp
 
          | Lit Literal
 

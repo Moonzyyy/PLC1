@@ -47,7 +47,7 @@ type Continuation = [Frame]
 eval :: CEK -> IO CEK
 eval (Var v, envs, cons, senv) = return (newV' , envs, cons, senv)
   where newV = lookup v envs
-        newV' | isNothing newV = fromMaybe (error ("Unassigned variable " ++ v)) (lookup v envs)
+        newV' | isNothing newV = fromMaybe (error ("Unassigned variable " ++ v)) (lookup v senv)
               | otherwise = fromJust newV
 
 -- | Rule 4 of the CEK machine
@@ -109,6 +109,9 @@ eval (Greater e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 greaterTh
 eval (GreaterEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 greaterThanEquals e2 env:cons, senv)
 eval (Less e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThan e2 env:cons, senv)
 eval (LessEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThanEquals e2 env:cons, senv)
+
+eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
+eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
 
 eval (Subtile e1 e2 e3 e4, env, cons, senv) = return (e1, env, FunctionHole4 subTile e2 e3 e4 env:cons, senv)
 eval (PlaceRight e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 placeRight e2 env:cons, senv)
@@ -213,25 +216,25 @@ repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [1..x]] | y
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
 
+swap :: Literal -> Literal -> Literal -> Literal
+swap = undefined
+
+change :: Literal -> Literal -> Literal -> Literal
+change (Int a ) (Int b ) (Int c )= Tile ["10101010101011"]
+
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp
-  where nextExp = do          print ("foor loop " ++ show (n) ++ " " ++ show(m) ++ show (e) ++ " " ++ show (senv))
-                              case n < m of
-                                true -> do
-                                  print (show(n) ++ " < " ++ show(m))
-                                  senv' <- evalLoop (e,env,[],senv)
-                                  let n' = n + 1
-                                  print("Test")
-                                  for (Int n') (Int m) (e,env,senv') exp
-                                false -> return (exp , env, senv)
-io :: a -> IO a
-io a = return a
+  where nextExp | n < m = do senv' <- evalLoop (e, env, [], senv)
+                             let n' = n + 1
+                             for (Int n') (Int m) (e, env, senv') exp
+
+                | otherwise = return (exp, env, senv)
+
 
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
                   next@(e1,_,_,_) <- eval cek
-                  print e
                   print e1
                   case next of
                     (END,_,_,senv) -> do
