@@ -3,3 +3,6 @@ Let (tile2:Tile) = Read "ex1Tile2.tl" In
 Let (line1:Tile) = RepeatRight 32 (PlaceRight (tile1) (tile2)) In
 Let (line2:Tile) = RepeatRight 32 (PlaceRight (tile2) (tile1)) In
 Output (RepeatDown 32 (PlaceBelow (line1) (line2)))
+
+
+Let (x:Int) = 2 In Blank (Let (x : Int ) = 1 In x)) Output(x)

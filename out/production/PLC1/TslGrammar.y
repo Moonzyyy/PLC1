@@ -9,6 +9,9 @@ import TslTokens
 %token
 
   LET { TokenLet _ }
+  STATIC {TokenStatic _}
+  FOR { TokenFor _ }
+  TO {TokenTo _}
   COLON { TokenColon _ }
   IN { TokenIn _ }
   ASSIGN { TokenAssign _ }
@@ -67,6 +70,8 @@ import TslTokens
 %%
 Exp : Literal { Lit $1 }
     | LET LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Let $3 $5 $8 $10}
+    | STATIC LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Static $3 $5 $8 $10}
+    | FOR Exp TO Exp IN Exp IN Exp {For $2 $4 $6 $8}
     | INTERLACE Exp Exp {Interlace $2 $3}
     | ROTATE90 Exp {Rotate90 $2}
     | ROTATE180 Exp {Rotate180 $2}
@@ -111,6 +116,8 @@ parseError (t:ts) = error ("Parse error at " ++ (tokenPosn t))
 
 data Exp =
          Let String Type Exp Exp
+         | Static String Type Exp Exp
+         | For Exp Exp Exp Exp
          | If Exp Exp Exp
          | Read Exp
          | Output Exp

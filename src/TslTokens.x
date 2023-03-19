@@ -14,8 +14,10 @@ tokens :-
   $white+       ;
   "--".*        ;
 
+  Static        { \p _ -> TokenStatic p}
   Let           { \p _ -> TokenLet p}
   For          { \p _ -> TokenFor p}
+  To             { \p _ -> TokenTo p}
   In            { \p _ -> TokenIn p}
 
   If            { \p _ -> TokenIf p}
@@ -80,10 +82,12 @@ tokens :-
 -- The token type:
 data Token =
   TokenLet AlexPosn
+  | TokenStatic AlexPosn
   | TokenFor AlexPosn
   | TokenColon AlexPosn
   | TokenAssign AlexPosn
   | TokenIn AlexPosn
+  | TokenTo AlexPosn
 
   | TokenIf AlexPosn
   | TokenThen AlexPosn
@@ -139,9 +143,13 @@ data Token =
 tokenPosn :: Token -> String
 
 tokenPosn (TokenLet p) = printPosn p
+tokenPosn (TokenStatic p) = printPosn p
 tokenPosn (TokenColon p) = printPosn p
 tokenPosn (TokenAssign p) = printPosn p
 tokenPosn (TokenIn p) = printPosn p
+
+tokenPosn (TokenFor p) = printPosn p
+tokenPosn (TokenTo p) = printPosn p
 
 tokenPosn (TokenIf p) = printPosn p
 tokenPosn (TokenThen p) = printPosn p

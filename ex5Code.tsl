@@ -4,3 +4,5 @@ Let (subTile2:Tile) = RepeatRight 3 (Subtile (6) (2) (2) (t)) In
 Let (subTile3:Tile) = RepeatRight 3 (Subtile (6) (4) (4) (t)) In
 Let (totalSubTile:Tile) = PlaceBelow (PlaceBelow subTile1 subTile2) subTile3 In
 Output(totalSubTile)
+
+
