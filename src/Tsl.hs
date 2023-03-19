@@ -181,16 +181,28 @@ blank :: Literal -> Literal
 blank (Int x) = Tile [[     '0'         | iterateX <- [1..x]] | iterateY <- [1..x]]
 
 andT :: Literal -> Literal -> Literal
-andT (Tile x) (Tile y) = undefined
+andT (Tile x) (Tile y) = Tile (zipWith (zipWith andNum)  x y)
+                         
+andNum :: Char -> Char -> Char
+andNum '0' '0' = '0'
+andNum '0' '1' = '0'
+andNum '1' '0' = '0'
+andNum '1' '1' = '1'
 
 orT :: Literal -> Literal -> Literal
-orT (Tile x) (Tile y) = undefined
+orT (Tile x) (Tile y) = Tile (zipWith (zipWith orNum)  x y)
+
+orNum :: Char -> Char -> Char
+orNum '0' '0' = '0'
+orNum '0' '1' = '1'
+orNum '1' '0' = '1'
+orNum '1' '1' = '1'
 
 notT :: Literal -> Literal
 notT (Tile xs) = Tile [[  if y == '1' then '0' else '1'| y <- x] | x <-xs ]
 
 add :: Literal -> Literal -> Literal
-add (Int x) (Int y) = (Int (x+y))
+add (Int x) (Int y) = Int (x+y)
 
 greaterThan :: Literal -> Literal -> Literal
 greaterThan (Int x) (Int y) = Bool (x>y)
