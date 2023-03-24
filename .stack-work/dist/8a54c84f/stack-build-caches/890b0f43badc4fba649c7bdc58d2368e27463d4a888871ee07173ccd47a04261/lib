@@ -7,7 +7,7 @@ C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-
 C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcversion.h:
   hash: 29d6607e92f065af06096e2cf6677b816f36cb00b9c9cf137b6a887fe0a21ffd
 C:\Users\danie\OneDrive\Desktop\PLC1\.stack-work\dist\8a54c84f\build\autogen\Paths_Tsl.hs:
-  hash: 285f0ac13f9b33e25b8d1bd0294231ce2f076290e7c83d53102b865a3fce4c33
+  hash: 4e3ec50baca3146e22f31d1bff68b6f788a3c01cced7c47078cbbcba7406ede2
 C:\Users\danie\OneDrive\Desktop\PLC1\.stack-work\dist\8a54c84f\build\autogen\cabal_macros.h:
   hash: 0d26db90788a6c30e9c48b07147496cb38db9d9a663f3a35b4fda0cbf4420d1f
 C:\Users\danie\OneDrive\Desktop\PLC1\CHANGELOG.md:
@@ -19,9 +19,9 @@ C:\Users\danie\OneDrive\Desktop\PLC1\Tsl.cabal:
 C:\Users\danie\OneDrive\Desktop\PLC1\package.yaml:
   hash: 3fd443c7eaf35d2b64bbaecffb4d6798ce21b7a0bab642db32dc38d97afd3fc6
 C:\Users\danie\OneDrive\Desktop\PLC1\src\Tsl.hs:
-  hash: 2e043b18c42d2ed13b77867c95e472f403b0ab4120235d0c5282b0ae194cabdc
+  hash: 723fac7689e535389bdc84c4f56b89e6a6db1661d40369552d0f26133ec3dd20
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslGrammar.y:
-  hash: 258aba197041628f1aa6a6420629c851220c4bc8a4f9e82d11e9f6d0b604c847
+  hash: 3b792c2e60e19c3b37a53866346723286efe99cec5a92dfdc778b589ab5c64a4
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslTokens.x:
   hash: 05804749eec4bc3b2a7a404ad843924be49be001a9669e7059ed94b5af5ca43e
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslType.hs:
