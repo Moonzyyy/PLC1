@@ -54,6 +54,7 @@ import TslTokens
   RPAREN { TokenRParen _ }
 
   PLUS { TokenPlus _ }
+  MULT { TokenMult _ }
 
   IntType { TokenIntType _ }
   StringType { TokenStringType _ }
@@ -96,6 +97,7 @@ Exp : Literal { Lit $1 }
     | READ Exp {Read $2}
     | OUTPUT Exp {Output $2}
     | Exp PLUS Exp {Plus $1 $3}
+    | Exp MULT Exp {Mult $1 $3}
     | SIZE Exp {Size $2}
     | LPAREN Exp RPAREN { $2 }
     | REPEATRIGHT Exp Exp {RepeatRight $2 $3}
@@ -127,6 +129,7 @@ data Exp =
 
          | Size Exp
          | Plus Exp Exp
+         | Mult Exp Exp
          | Interlace Exp Exp
          | Rotate90 Exp
          | Rotate180 Exp
