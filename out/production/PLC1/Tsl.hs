@@ -222,7 +222,7 @@ swap :: Literal -> Literal -> Literal -> Literal
 swap = undefined
 
 change :: Literal -> Literal -> Literal -> Literal
-change (Int a ) (Int b ) (Int c )= Tile ["10101010101011"]
+change = undefined
 
 plus :: Literal -> Literal -> Literal
 plus (Int a) (Int b) = Int (a + b)
