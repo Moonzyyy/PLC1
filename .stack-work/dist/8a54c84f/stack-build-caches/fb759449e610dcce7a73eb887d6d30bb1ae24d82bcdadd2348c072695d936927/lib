@@ -1,11 +1,3 @@
-? C:\Users\hgaze\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcautoconf.h
-: hash: c4da8373c994f9eb0c898bd9d96f51c976130d0d8756468e5c6bae5b3585c6a5
-C:\Users\hgaze\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcconfig.h:
-  hash: 03f4611ae97decc9e8c76c212bf7886d003b29d5c62b43fee6623a799f6e5fdf
-? C:\Users\hgaze\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcplatform.h
-: hash: d70654d45963a2cfd815a7bc6b2b0b656fb3a4db60f158d89689da7aee58ab09
-C:\Users\hgaze\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcversion.h:
-  hash: 29d6607e92f065af06096e2cf6677b816f36cb00b9c9cf137b6a887fe0a21ffd
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\.stack-work\dist\8a54c84f\build\autogen\Paths_Tsl.hs:
   hash: 6a5b85e78b68bb40a0832a7d9bebd689b935b25c4191f2bb48fdf5e65c3e0a60
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\.stack-work\dist\8a54c84f\build\autogen\cabal_macros.h:
@@ -19,10 +11,10 @@ C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\Tsl.cabal:
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\package.yaml:
   hash: 3fd443c7eaf35d2b64bbaecffb4d6798ce21b7a0bab642db32dc38d97afd3fc6
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\src\Tsl.hs:
-  hash: 73bc19c21787334f9adc4a69631748b5c9d9a323d04f21c6b0cd1b4bf4af2259
+  hash: 7323dcb68f8f46a6da02dec63dea2b12c31134061657759eba150ebf932d6b46
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\src\TslGrammar.y:
-  hash: 6449d69e054585a90dfe8f6a54f99d7b9a136bf6951e4fde2210c91c2bde6934
+  hash: 9425f33b819523bdb8464ce8595a16a15cff31439c6cb766f0e47360a5321acf
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\src\TslTokens.x:
-  hash: 625ff106e1de925477c127039bc3a7939095ec35d737a5c73e67d55dd10c5308
+  hash: 05804749eec4bc3b2a7a404ad843924be49be001a9669e7059ed94b5af5ca43e
 C:\Users\hgaze\Documents\1 Documents\Y2S2\PLC\coursework\PLC1\src\TslType.hs:
   hash: aa357748c8fac9afa1839d3f3d7953e6aec0fe207ae1270b6b87fb56a81aa9b0

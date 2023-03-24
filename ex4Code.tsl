@@ -3,6 +3,6 @@ Let (t2:Tile) = Read "ex4Tile2.tl" In
 Let (t3:Tile) = Read "ex4Tile3.tl" In
 Let (right:Tile) = t1 And (Not t3) In
 Let (left:Tile) = t2 And (Not t3) In
---Let size = (Size t1) * 50 In  --as a tile is unit size, and there are 50 tiles in the row
+Let size = (Size t1) * 50 In  --as a tile is unit size, and there are 50 tiles in the row
 Let (tile:Tile) = Blank 50 In
 Output right

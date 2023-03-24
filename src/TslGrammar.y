@@ -47,8 +47,8 @@ import TslTokens
   REPEATRIGHT { TokenRepeatRight _ }
   REPEATDOWN { TokenRepeatDown _ }
 
- SWAP { TokenSwap _ }
- CHANGE { TokenChange _ }
+  SWAP { TokenSwap _ }
+  CHANGE { TokenChange _ }
 
   LPAREN { TokenLParen _ }
   RPAREN { TokenRParen _ }
