@@ -109,9 +109,11 @@ eval (Greater e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 greaterTh
 eval (GreaterEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 greaterThanEquals e2 env:cons, senv)
 eval (Less e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThan e2 env:cons, senv)
 eval (LessEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThanEquals e2 env:cons, senv)
+eval (Plus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 plus e2 env:cons, senv)
 
 eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
 eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
+
 
 eval (Subtile e1 e2 e3 e4, env, cons, senv) = return (e1, env, FunctionHole4 subTile e2 e3 e4 env:cons, senv)
 eval (PlaceRight e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 placeRight e2 env:cons, senv)
@@ -222,6 +224,9 @@ swap = undefined
 change :: Literal -> Literal -> Literal -> Literal
 change (Int a ) (Int b ) (Int c )= Tile ["10101010101011"]
 
+plus :: Literal -> Literal -> Literal
+plus (Int a) (Int b) = Int (a + b)
+
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp
   where nextExp | n < m = do senv' <- evalLoop (e, env, [], senv)
@@ -235,7 +240,6 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
                   next@(e1,_,_,_) <- eval cek
-                  print e1
                   case next of
                     (END,_,_,senv) -> do
                       print "Program Terminated Cleanly"

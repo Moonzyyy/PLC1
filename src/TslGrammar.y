@@ -72,7 +72,6 @@ import TslTokens
 Exp : Literal { Lit $1 }
     | LET LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Let $3 $5 $8 $10}
     | STATIC LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Static $3 $5 $8 $10}
-    | var ASSIGN Exp
     | FOR Exp TO Exp IN Exp IN Exp {For $2 $4 $6 $8}
     | INTERLACE Exp Exp {Interlace $2 $3}
     | ROTATE90 Exp {Rotate90 $2}
@@ -150,8 +149,8 @@ data Exp =
          | RepeatRight Exp Exp
          | RepeatDown Exp Exp
 
-	 | Swap Exp Exp Exp
-	 | Change Exp Exp Exp
+	     | Swap Exp Exp Exp
+	     | Change Exp Exp Exp
 
          | Lit Literal
 
