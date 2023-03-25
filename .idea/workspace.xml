@@ -4,40 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Added division">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)">
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hs" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.hs" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/fb759449e610dcce7a73eb887d6d30bb1ae24d82bcdadd2348c072695d936927/lib" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/fb759449e610dcce7a73eb887d6d30bb1ae24d82bcdadd2348c072695d936927/lib" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/bin/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/bin/Tsl-exe.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslGrammar.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslGrammar.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslTokens.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslTokens.hi" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslType.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslType.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/package.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/package.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/stack.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/stack.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ex4Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex4Code.tsl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PLC1/TslGrammar.y" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/TslGrammar.y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PLC1/TslTokens.x" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/TslTokens.x" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tsl.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TslGrammar.y" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslGrammar.y" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TslTokens.x" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslTokens.x" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testCode.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/testCode.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +70,7 @@
       <module name="PLC1" />
       <option name="allowRunningInParallel" value="false" />
       <option name="executableName" value="Tsl-exe" />
-      <option name="programArgs" value="ex4Code.tsl" />
+      <option name="programArgs" value="testCode.tsl" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -133,7 +111,7 @@
       <workItem from="1679658552719" duration="1291000" />
       <workItem from="1679661126784" duration="680000" />
       <workItem from="1679736697784" duration="1682000" />
-      <workItem from="1679739895431" duration="8705000" />
+      <workItem from="1679739895431" duration="8947000" />
     </task>
     <task id="LOCAL-00001" summary="Alex and Happy are finally happy!">
       <created>1678640981965</created>
@@ -198,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679738382004</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)">
+      <created>1679750714914</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679750714914</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +212,7 @@
     <MESSAGE value="push to be able to checkout new branch? I hate git" />
     <MESSAGE value="Added multiplication" />
     <MESSAGE value="Added division" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added division" />
+    <MESSAGE value="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)" />
+    <option name="LAST_COMMIT_MESSAGE" value="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)" />
   </component>
 </project>

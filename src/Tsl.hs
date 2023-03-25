@@ -228,10 +228,8 @@ repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [1..x]] | y
 removeRow :: Literal -> Literal -> Literal
 removeRow (Int x) (Tile ys) = Tile ( take (x-1) ys ++ drop x ys )  
    
-
-
 removeColumn :: Literal -> Literal -> Literal
-removeColumn (Int x) (Tile ys) = Tile ( [[  bit |  bit <- line, num <- [1..length line], num/=x ] | line <- ys]  )
+removeColumn (Int x) (Tile ys) = Tile ( [ take (x-1) line ++ drop x line | line <- ys]  )
 
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)

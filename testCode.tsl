@@ -1,5 +1,5 @@
 Let (t2:Tile) = Read "ex4Tile2.tl" In
 Let (t3:Tile) = Read "ex4Tile3.tl" In
-Let (tile:Tile) = RemoveRow 4 (PlaceBelow t2 t3) In
+Let (tile:Tile) = RemoveColumn 2 (PlaceBelow t2 t3) In
 
 Output tile
