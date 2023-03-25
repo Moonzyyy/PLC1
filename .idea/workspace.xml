@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Added multiplication">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_17_2023_9_04_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_3_17_2023_9_04_PM__Changes_.xml" beforeDir="false" />
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="Added division">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Paths_Tsl.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe-tmp/Main.hi" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl-exe/Tsl-exe.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" afterDir="false" />
@@ -41,6 +38,7 @@
       <change beforePath="$PROJECT_DIR$/src/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tsl.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TslGrammar.y" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslGrammar.y" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TslTokens.x" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslTokens.x" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testCode.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/testCode.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,8 @@
       <workItem from="1679658529435" duration="7000" />
       <workItem from="1679658552719" duration="1291000" />
       <workItem from="1679661126784" duration="680000" />
-      <workItem from="1679736697784" duration="1636000" />
+      <workItem from="1679736697784" duration="1682000" />
+      <workItem from="1679739895431" duration="8705000" />
     </task>
     <task id="LOCAL-00001" summary="Alex and Happy are finally happy!">
       <created>1678640981965</created>
@@ -192,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679679004236</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added division">
+      <created>1679738382004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679738382004</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +226,7 @@
     <MESSAGE value="ForLoop Complement" />
     <MESSAGE value="push to be able to checkout new branch? I hate git" />
     <MESSAGE value="Added multiplication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added multiplication" />
+    <MESSAGE value="Added division" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added division" />
   </component>
 </project>

@@ -46,6 +46,8 @@ import TslTokens
   PLACEBELOW { TokenPlaceBelow _ }
   REPEATRIGHT { TokenRepeatRight _ }
   REPEATDOWN { TokenRepeatDown _ }
+  REMOVEROW { TokenRemoveRow _ }
+  REMOVECOLUMN { TokenRemoveColumn _ }
 
   SWAP { TokenSwap _ }
   CHANGE { TokenChange _ }
@@ -56,6 +58,7 @@ import TslTokens
   PLUS { TokenPlus _ }
   MULT { TokenMult _ }
   IDIV { TokenIDiv _ }
+  MINUS { TokenMinus _ }
 
   IntType { TokenIntType _ }
   StringType { TokenStringType _ }
@@ -87,6 +90,8 @@ Exp : Literal { Lit $1 }
     | SUBTILE Exp Exp Exp Exp {Subtile $2 $3 $4 $5}
     | PLACERIGHT Exp Exp {PlaceRight $2 $3}
     | PLACEBELOW Exp Exp {PlaceBelow $2 $3}
+    | REMOVEROW Exp Exp {RemoveRow $2 $3}
+    | REMOVECOLUMN Exp Exp {RemoveColumn $2 $3}
     | NOT Exp {Not $2}
     | Exp AND Exp {And $1 $3}
     | Exp OR Exp {Or $1 $3}
@@ -100,6 +105,7 @@ Exp : Literal { Lit $1 }
     | Exp PLUS Exp {Plus $1 $3}
     | Exp MULT Exp {Mult $1 $3}
     | Exp IDIV Exp {IDiv $1 $3}
+    | Exp MINUS Exp {Minus $1 $3}
     | SIZE Exp {Size $2}
     | LPAREN Exp RPAREN { $2 }
     | REPEATRIGHT Exp Exp {RepeatRight $2 $3}
@@ -132,6 +138,7 @@ data Exp =
          | Size Exp
          | Plus Exp Exp
          | Mult Exp Exp
+         | Minus Exp Exp
          | IDiv Exp Exp
          | Interlace Exp Exp
          | Rotate90 Exp
@@ -145,6 +152,8 @@ data Exp =
          | Subtile Exp Exp Exp Exp
          | PlaceRight Exp Exp
          | PlaceBelow Exp Exp
+         | RemoveRow Exp Exp
+         | RemoveColumn Exp Exp
          | Not Exp
          | And Exp Exp
          | Or Exp Exp

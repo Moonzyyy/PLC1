@@ -112,6 +112,7 @@ eval (LessEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessTha
 eval (Plus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 plus e2 env:cons, senv)
 eval (Mult e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 mult e2 env:cons, senv)
 eval (IDiv e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 idiv e2 env:cons, senv)
+eval (Minus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 minus e2 env:cons, senv)
 
 eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
 eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
@@ -122,6 +123,10 @@ eval (PlaceRight e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 placeR
 eval (PlaceBelow e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 placeBelow e2 env:cons, senv)
 eval (RepeatDown  e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 repeatDown e2 env:cons, senv)
 eval (RepeatRight e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 repeatRight e2 env:cons, senv)
+eval (RemoveRow e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 removeRow e2 env:cons, senv)
+eval (RemoveColumn e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 removeColumn e2 env:cons, senv)
+
+
 eval _ = error "Runtime evaluation error"
 
 -- | TODO: Add error handling for when length =/= height
@@ -220,6 +225,14 @@ repeatDown (Int x) (Tile ys) = Tile  [     y     | repetition <- [1..x], y <- ys
 repeatRight :: Literal -> Literal -> Literal
 repeatRight (Int x) (Tile ys) = Tile ([concat[     y     | repeat <- [1..x]] | y <- ys   ])
 
+removeRow :: Literal -> Literal -> Literal
+removeRow (Int x) (Tile ys) = Tile ( take (x-1) ys ++ drop x ys )  
+   
+
+
+removeColumn :: Literal -> Literal -> Literal
+removeColumn (Int x) (Tile ys) = Tile ( [[  bit |  bit <- line, num <- [1..length line], num/=x ] | line <- ys]  )
+
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
 
@@ -237,6 +250,9 @@ mult (Int a) (Int b) = Int (a * b)
 
 idiv :: Literal -> Literal -> Literal
 idiv (Int a) (Int b) = Int (div a b)
+
+minus :: Literal -> Literal -> Literal
+minus (Int a) (Int b) = Int (a - b)
 
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp
