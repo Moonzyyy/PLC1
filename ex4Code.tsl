@@ -4,6 +4,8 @@ Let (t3:Tile) = Read "ex4Tile3.tl" In
 Let (unit:Int) = Size t1 In
 Let (leftUnit:Tile) = t1 And (Not t3) In
 Let (rightUnit:Tile) = t2 And (Not t3) In
+
+# 50 times size of input. so draw 25 of one and 25 off another across, and 26 down
 Let (top:Tile) = RepeatDown 26 (PlaceRight (RepeatRight 25 leftUnit) (RepeatRight 25 rightUnit)) In
 
 # 1 to 24 row names
@@ -20,5 +22,3 @@ In
 
 Let (final:Tile) = PlaceBelow top (RemoveRow 1 bottom) In
 Output final
-
-# 50 times size of input. so draw 25 of one and 25 off another across, and 26 down
