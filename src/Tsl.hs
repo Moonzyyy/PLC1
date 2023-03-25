@@ -111,6 +111,7 @@ eval (Less e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThan e2 
 eval (LessEqual e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 lessThanEquals e2 env:cons, senv)
 eval (Plus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 plus e2 env:cons, senv)
 eval (Mult e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 mult e2 env:cons, senv)
+eval (IDiv e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 idiv e2 env:cons, senv)
 
 eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
 eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
@@ -233,6 +234,9 @@ plus (Int a) (Int b) = Int (a + b)
 
 mult :: Literal -> Literal -> Literal
 mult (Int a) (Int b) = Int (a * b)
+
+idiv :: Literal -> Literal -> Literal
+idiv (Int a) (Int b) = Int (div a b)
 
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp

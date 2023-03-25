@@ -63,6 +63,7 @@ tokens :-
 
   \+            { \p _ -> TokenPlus p}
   \*            { \p _ -> TokenMult p}
+  \/         { \p _ -> TokenIDiv p}
 
   Def        { \p _ -> TokenDef p}
   Comma       { \p _ -> TokenComma p}
@@ -129,6 +130,7 @@ data Token =
 
   | TokenPlus AlexPosn
   | TokenMult AlexPosn
+  | TokenIDiv AlexPosn
 
   | TokenDef AlexPosn
   | TokenComma AlexPosn
@@ -179,6 +181,7 @@ tokenPosn (TokenRParen p) = printPosn p
 
 tokenPosn (TokenPlus p) = printPosn p
 tokenPosn (TokenMult p) = printPosn p
+tokenPosn (TokenIDiv p) = printPosn p
 
 tokenPosn (TokenIntType p) = printPosn p
 tokenPosn (TokenStringType p) = printPosn p
