@@ -19,6 +19,7 @@ someFunc = do
            let grammar = parseTsl(parser)
            print grammar
            let typeCheck = typeOf [] grammar
+           print typeCheck
            evalLoop (grammar, [], [], [])
            return ()
 
@@ -174,7 +175,8 @@ blank (Int x) = Tile [[     '0'         | iterateX <- [1..x]] | iterateY <- [1..
 
 andT :: Literal -> Literal -> Literal
 andT (Tile x) (Tile y) = Tile (zipWith (zipWith andNum)  x y)
-                         
+          
+--Helper function for andT               
 andNum :: Char -> Char -> Char
 andNum '0' '0' = '0'
 andNum '0' '1' = '0'
@@ -184,6 +186,7 @@ andNum '1' '1' = '1'
 orT :: Literal -> Literal -> Literal
 orT (Tile x) (Tile y) = Tile (zipWith (zipWith orNum)  x y)
 
+--helper function of orT
 orNum :: Char -> Char -> Char
 orNum '0' '0' = '0'
 orNum '0' '1' = '1'
