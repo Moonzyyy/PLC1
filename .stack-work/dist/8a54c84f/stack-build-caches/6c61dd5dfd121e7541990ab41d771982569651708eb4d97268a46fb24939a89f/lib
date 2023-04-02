@@ -1,0 +1,28 @@
+? C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcautoconf.h
+: hash: c4da8373c994f9eb0c898bd9d96f51c976130d0d8756468e5c6bae5b3585c6a5
+C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcconfig.h:
+  hash: 03f4611ae97decc9e8c76c212bf7886d003b29d5c62b43fee6623a799f6e5fdf
+? C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcplatform.h
+: hash: d70654d45963a2cfd815a7bc6b2b0b656fb3a4db60f158d89689da7aee58ab09
+C:\Users\danie\AppData\Local\Programs\stack\x86_64-windows\ghc-9.2.7\lib\x86_64-windows-ghc-9.2.7\rts-1.0.2\include\ghcversion.h:
+  hash: 29d6607e92f065af06096e2cf6677b816f36cb00b9c9cf137b6a887fe0a21ffd
+C:\Users\danie\OneDrive\Desktop\PLC1\.stack-work\dist\8a54c84f\build\autogen\Paths_Tsl.hs:
+  hash: 285f0ac13f9b33e25b8d1bd0294231ce2f076290e7c83d53102b865a3fce4c33
+C:\Users\danie\OneDrive\Desktop\PLC1\.stack-work\dist\8a54c84f\build\autogen\cabal_macros.h:
+  hash: 0d26db90788a6c30e9c48b07147496cb38db9d9a663f3a35b4fda0cbf4420d1f
+C:\Users\danie\OneDrive\Desktop\PLC1\CHANGELOG.md:
+  hash: 61d7363ce0c67199f575b94e76f430f9b2ef229a32fd325eec4ebfba1637850e
+C:\Users\danie\OneDrive\Desktop\PLC1\README.md:
+  hash: c603e6560373cb64daa692a223b936d2818d3bde3c2e380c56331939250ab1f3
+C:\Users\danie\OneDrive\Desktop\PLC1\Tsl.cabal:
+  hash: 8066d6ece1589dc0f4fda68984519650cbc575deb1f2da84da031bbc70fb731a
+C:\Users\danie\OneDrive\Desktop\PLC1\package.yaml:
+  hash: 3fd443c7eaf35d2b64bbaecffb4d6798ce21b7a0bab642db32dc38d97afd3fc6
+C:\Users\danie\OneDrive\Desktop\PLC1\src\Tsl.hs:
+  hash: e6c721b50298f7537e12b6c9f357f116d483ab52556c34e9b554cf87684e3f51
+C:\Users\danie\OneDrive\Desktop\PLC1\src\TslGrammar.y:
+  hash: 3b85e37840b67421d41fad57d721838ea9f57ab3283160a2cfcd4522c00c675a
+C:\Users\danie\OneDrive\Desktop\PLC1\src\TslTokens.x:
+  hash: 05804749eec4bc3b2a7a404ad843924be49be001a9669e7059ed94b5af5ca43e
+C:\Users\danie\OneDrive\Desktop\PLC1\src\TslType.hs:
+  hash: aa357748c8fac9afa1839d3f3d7953e6aec0fe207ae1270b6b87fb56a81aa9b0
