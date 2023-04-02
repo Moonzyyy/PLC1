@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="ForLoop Complement">
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="removeColumn  implemented">
       <change beforePath="$PROJECT_DIR$/.stack-work/stack.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/stack.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ex4Code.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/ex4Code.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +60,7 @@
       <module name="PLC1" />
       <option name="allowRunningInParallel" value="false" />
       <option name="executableName" value="Tsl-exe" />
-      <option name="programArgs" value="ex2Code.tsl" />
+      <option name="programArgs" value="testCode.tsl" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -99,8 +100,8 @@
       <workItem from="1679658529435" duration="7000" />
       <workItem from="1679658552719" duration="1291000" />
       <workItem from="1679661126784" duration="680000" />
-      <workItem from="1680045562257" duration="1668000" />
-      <workItem from="1680435824331" duration="303000" />
+      <workItem from="1679736697784" duration="1682000" />
+      <workItem from="1679739895431" duration="9384000" />
     </task>
     <task id="LOCAL-00001" summary="Alex and Happy are finally happy!">
       <created>1678640981965</created>
@@ -151,7 +152,35 @@
       <option name="project" value="LOCAL" />
       <updated>1679244887615</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added multiplication">
+      <created>1679679004236</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679679004236</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Added division">
+      <created>1679738382004</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679738382004</updated>
+    </task>
+    <task id="LOCAL-00010" summary="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)">
+      <created>1679750714914</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679750714914</updated>
+    </task>
+    <task id="LOCAL-00011" summary="removeColumn  implemented">
+      <created>1679750988507</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679750988507</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +206,11 @@
     <MESSAGE value="Fixed repeatDown and repeatRight to use 1..x and finished ex2Code" />
     <MESSAGE value="1,2,3,5 complete" />
     <MESSAGE value="ForLoop Complement" />
-    <option name="LAST_COMMIT_MESSAGE" value="ForLoop Complement" />
+    <MESSAGE value="push to be able to checkout new branch? I hate git" />
+    <MESSAGE value="Added multiplication" />
+    <MESSAGE value="Added division" />
+    <MESSAGE value="All exercises complete. Added removeRow and removeColumn to grammar (removeColumn not impletemented)" />
+    <MESSAGE value="removeColumn  implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="removeColumn  implemented" />
   </component>
 </project>

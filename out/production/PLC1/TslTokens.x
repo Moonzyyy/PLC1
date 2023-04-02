@@ -12,7 +12,7 @@ $alpha = [a-zA-Z]
 
 tokens :-
   $white+       ;
-  "--".*        ;
+  "#".*        ;
 
   Static        { \p _ -> TokenStatic p}
   Let           { \p _ -> TokenLet p}
@@ -51,6 +51,8 @@ tokens :-
   PlaceBelow    { \p _ -> TokenPlaceBelow p}
   RepeatRight { \p _ -> TokenRepeatRight p}
   RepeatDown { \p _ -> TokenRepeatDown p}
+  RemoveRow { \p _ -> TokenRemoveRow p}
+  RemoveColumn { \p _ -> TokenRemoveColumn p}
 
   Swap { \p _ -> TokenSwap p }
   Change { \p _ -> TokenChange p}
@@ -62,6 +64,9 @@ tokens :-
   \)            { \p _ -> TokenRParen p}
 
   \+            { \p _ -> TokenPlus p}
+  \*            { \p _ -> TokenMult p}
+  \/            { \p _ -> TokenIDiv p}
+  \-            { \p _ -> TokenMinus p}
 
   Def        { \p _ -> TokenDef p}
   Comma       { \p _ -> TokenComma p}
@@ -119,6 +124,8 @@ data Token =
   | TokenPlaceBelow AlexPosn
   | TokenRepeatRight AlexPosn
   | TokenRepeatDown AlexPosn
+  | TokenRemoveRow AlexPosn
+  | TokenRemoveColumn AlexPosn
 
   | TokenSwap AlexPosn
   | TokenChange AlexPosn
@@ -127,7 +134,9 @@ data Token =
   | TokenRParen AlexPosn
 
   | TokenPlus AlexPosn
-
+  | TokenMult AlexPosn
+  | TokenIDiv AlexPosn
+  | TokenMinus AlexPosn
 
   | TokenDef AlexPosn
   | TokenComma AlexPosn
@@ -167,6 +176,9 @@ tokenPosn (TokenPlaceBelow p) = printPosn p
 tokenPosn (TokenRepeatRight p) = printPosn p
 tokenPosn (TokenRepeatDown p) = printPosn p
 
+tokenPosn (TokenRemoveRow p) = printPosn p
+tokenPosn (TokenRemoveColumn p) = printPosn p
+
 tokenPosn (TokenSwap p) = printPosn p
 tokenPosn (TokenChange p) = printPosn p
 
@@ -177,6 +189,9 @@ tokenPosn (TokenLParen p) = printPosn p
 tokenPosn (TokenRParen p) = printPosn p
 
 tokenPosn (TokenPlus p) = printPosn p
+tokenPosn (TokenMult p) = printPosn p
+tokenPosn (TokenIDiv p) = printPosn p
+tokenPosn (TokenMinus p) = printPosn p
 
 tokenPosn (TokenIntType p) = printPosn p
 tokenPosn (TokenStringType p) = printPosn p

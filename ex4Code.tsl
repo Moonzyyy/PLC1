@@ -1,8 +1,24 @@
 Let (t1:Tile) = Read "ex4Tile1.tl" In
 Let (t2:Tile) = Read "ex4Tile2.tl" In
 Let (t3:Tile) = Read "ex4Tile3.tl" In
-Let (right:Tile) = t1 And (Not t3) In
-Let (left:Tile) = t2 And (Not t3) In
-Let size = (Size t1) * 50 In  --as a tile is unit size, and there are 50 tiles in the row
-Let (tile:Tile) = Blank 50 In
-Output right
+Let (unit:Int) = Size t1 In
+Let (leftUnit:Tile) = t1 And (Not t3) In
+Let (rightUnit:Tile) = t2 And (Not t3) In
+
+# 50 times size of input. so draw 25 of one and 25 off another across, and 26 down
+Let (top:Tile) = RepeatDown 26 (PlaceRight (RepeatRight 25 leftUnit) (RepeatRight 25 rightUnit)) In
+
+# 1 to 24 row names
+Static (count:Int) = 0 In
+Static (bottom:Tile) = RepeatRight (50 * unit) (Blank 1) In
+For 0 To 24 In
+   Static (count:Int) = count + 1 In
+   Static (backCount:Int) = 25 - count In
+   Let (left:Tile) = PlaceRight (RepeatRight backCount leftUnit) (RepeatRight count (Blank unit)) In
+   Let (right:Tile) = PlaceRight (RepeatRight count (Blank unit)) (RepeatRight backCount rightUnit) In
+   Static (bottom:Tile) = PlaceBelow bottom (PlaceRight left right) In
+   0
+In
+
+Let (final:Tile) = PlaceBelow top (RemoveRow 1 bottom) In
+Output final
