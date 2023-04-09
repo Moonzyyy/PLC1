@@ -10,18 +10,24 @@ import System.Environment
 import Data.Maybe (fromJust, isNothing, fromMaybe)
 import Data.List
 
+debug = False
+
+logger :: Show a => a -> IO ()
+logger | debug = print
+       | otherwise = const $ return ()
+
 someFunc :: IO ()
 someFunc = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
-           print parser
+           logger parser
            let grammar = parseTsl(parser)
-           print grammar
-           let typeCheck = typeOf [] grammar
+           logger grammar
+           let typeCheck = typeOf [] [] grammar
+           logger typeCheck
            evalLoop (grammar, [], [], [])
            return ()
-
 
 type CEK = (Control, Environment, Continuation, Environment)
 type Control = Exp
@@ -174,7 +180,8 @@ blank (Int x) = Tile [[     '0'         | iterateX <- [1..x]] | iterateY <- [1..
 
 andT :: Literal -> Literal -> Literal
 andT (Tile x) (Tile y) = Tile (zipWith (zipWith andNum)  x y)
-                         
+          
+--Helper function for andT               
 andNum :: Char -> Char -> Char
 andNum '0' '0' = '0'
 andNum '0' '1' = '0'
@@ -184,6 +191,7 @@ andNum '1' '1' = '1'
 orT :: Literal -> Literal -> Literal
 orT (Tile x) (Tile y) = Tile (zipWith (zipWith orNum)  x y)
 
+--helper function of orT
 orNum :: Char -> Char -> Char
 orNum '0' '0' = '0'
 orNum '0' '1' = '1'
@@ -264,6 +272,7 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
+                  logger e
                   next@(e1,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do

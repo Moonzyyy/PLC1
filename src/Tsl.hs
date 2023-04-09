@@ -10,19 +10,24 @@ import System.Environment
 import Data.Maybe (fromJust, isNothing, fromMaybe)
 import Data.List
 
+debug = False
+
+logger :: Show a => a -> IO ()
+logger | debug = print
+       | otherwise = const $ return ()
+
 someFunc :: IO ()
 someFunc = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
-           print parser
+           logger parser
            let grammar = parseTsl(parser)
-           print grammar
-           let typeCheck = typeOf [] grammar
-           print typeCheck
+           logger grammar
+           let typeCheck = typeOf [] [] grammar
+           logger typeCheck
            evalLoop (grammar, [], [], [])
            return ()
-
 
 type CEK = (Control, Environment, Continuation, Environment)
 type Control = Exp
@@ -267,6 +272,7 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
+                  logger e
                   next@(e1,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do

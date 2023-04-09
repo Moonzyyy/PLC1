@@ -4,8 +4,9 @@ import TslGrammar
 
 type TypeEnv = [(String, Type)]
 
-lookupEnv :: String -> TypeEnv -> Type
-lookupEnv x env = maybe (error ("Unassigned variable: " ++ x)) id (lookup x env)
+lookupEnv :: String -> TypeEnv -> TypeEnv -> Type
+lookupEnv x env senv = maybe (senvCheck) id (lookup x env)
+  where senvCheck = maybe (error "unassigned variable") id (lookup x senv)
 
 unparsedType :: Type -> String
 unparsedType IntType = "int"
@@ -16,117 +17,177 @@ addType :: TypeEnv -> String -> Type -> TypeEnv
 addType env x t = (x,t):env
 
         
-typeOf :: TypeEnv -> Exp -> Type
-typeOf env (Lit (Int n)) = IntType
-typeOf env (Lit (String s)) = StringType
-typeOf env (Lit (Bool b)) = BoolType
-typeOf env (Lit (Tile t)) = TileType
+typeOf :: TypeEnv -> TypeEnv -> Exp -> (Type,TypeEnv)
+typeOf env senv (Lit (Int n)) = (IntType,senv)
+typeOf env senv (Lit (String s)) = (StringType,senv)
+typeOf env senv (Lit (Bool b)) = (BoolType,senv)
+typeOf env senv (Lit (Tile t)) = (TileType,senv)
 
-typeOf env (Var x) = lookupEnv x env
+typeOf env senv (Var x) = (lookupEnv x env senv,senv)
 
-typeOf env (Let x t e1 e2) | typeOf env e1 == t = typeOf (addType env x t) e2
-                           | otherwise = error "Type does not match in Let"
+typeOf env senv (Let x t e1 e2) | t1 == t = o
+                                | otherwise = error "Type does not match in Let"
+                                where (t1,senv1) = typeOf env senv e1
+                                      o@(t2,senv2) = typeOf (addType env x t) senv1 e2
 
-typeOf env (Static x t e1 e2) | typeOf env e1 == t = typeOf (addType env x t) e2
-                              | otherwise = error "Type does not match in Static"
+typeOf env senv (Static x t e1 e2) | t1 == t = o
+                                   | otherwise = error "Type does not match in Static"
+                                   where (t1,senv1) = typeOf env senv e1
+                                         o@(t2,senv2) = typeOf env (addType senv1 x t) e2
 
+typeOf env senv (If e1 e2 e3) | t1 == BoolType && t2 == t3 = o
+                              | otherwise = error "Type does not match in If"
+                              where (t1,senv1) = typeOf env senv e1
+                                    (t2,senv2) = typeOf env senv1 e2
+                                    o@(t3,senv3) = typeOf env senv2 e3
 
-typeOf env (If e1 e2 e3) | typeOf env e1 == BoolType = typeOf env e2
-                         | otherwise = error "Type does not match in If"
+typeOf env senv (Interlace e1 e2) | t1 == TileType && t2 == TileType = o
+                                  | otherwise = error "Type does not match in Interlace"
+                                  where (t1,senv1) = typeOf env senv e1
+                                        o@(t2,senv2) = typeOf env senv1 e2
 
-typeOf env (Interlace e1 e2) | typeOf env e1 == TileType && typeOf env e2 == TileType = TileType
-                             | otherwise = error "Type does not match in Interlace"
-typeOf env (Size x) | typeOf env x == TileType = IntType
-                    | otherwise = error "Type does not match in Size"
+typeOf env senv (Size e1) | t1 == TileType = (IntType,senv1)
+                          | otherwise = error "Type does not match in Size"
+                          where (t1,senv1) = typeOf env senv e1
 
-typeOf env (Rotate90 x) | typeOf env x == TileType = TileType
-                        | otherwise = error "Type does not match in Rotate90"
+typeOf env senv (Rotate90 e1) | t1 == TileType = (TileType,senv1)
+                              | otherwise = error "Type does not match in Rotate90"
+                              where o@(t1,senv1) = typeOf env senv e1
+                        
 
-typeOf env (Rotate180 x) | typeOf env x == TileType = TileType
-                         | otherwise = error "Type does not match in Rotate180"
+typeOf env senv (Rotate180 e1) | t1 == TileType = (TileType,senv1)
+                               | otherwise = error "Type does not match in Rotate180"
+                               where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env (Rotate270 x) | typeOf env x == TileType = TileType
-                         | otherwise = error "Type does not match in Rotate270"
+typeOf env senv (Rotate270 e1) | t1 == TileType = (TileType,senv1)
+                               | otherwise = error "Type does not match in Rotate270"
+                               where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env (Scale e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = TileType
-                         | otherwise = error "Type does not match in Scale"
+typeOf env senv (Scale e1 e2) | t1 == IntType && t2 == TileType = (TileType,senv2)
+                              | otherwise = error "Type does not match in Scale"
+                              where (t1,senv1) = typeOf env senv e1
+                                    o@(t2,senv2) = typeOf env senv1 e2
 
-typeOf env (FlipX x) | typeOf env x == TileType = TileType
-                     | otherwise = error "Type does not match in FlipX"
+typeOf env senv (FlipX e1) | t1 == TileType = (TileType,senv1)
+                           | otherwise = error "Type does not match in FlipX"
+                           where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env (FlipY x) | typeOf env x == TileType = TileType
-                     | otherwise = error "Type does not match in FlipY"
-typeOf env (FlipXY x) | typeOf env x == TileType = TileType
-                     | otherwise = error "Type does not match in FlipXY"
+typeOf env senv (FlipY e1) | t1 == TileType = (TileType,senv1)
+                           | otherwise = error "Type does not match in FlipY"
+                           where o@(t1,senv1) = typeOf env senv e1
+                           
+typeOf env senv (FlipXY e1) | t1 == TileType = (TileType,senv1)
+                            | otherwise = error "Type does not match in FlipXY"
+                            where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env (Blank x) | typeOf env x == IntType = TileType
-                     | otherwise = error "Type does not match in Blank"
+typeOf env senv (Blank x) | t1 == IntType = (TileType,senv1)
+                          | otherwise = error "Type does not match in Blank"
+                          where o@(t1,senv1) = typeOf env senv x
 
-typeOf env (And e1 e2) | typeOf env e1 == TileType && typeOf env e2 == TileType = TileType
-                       | otherwise = error "Type does not match in And"
-typeOf env (Or e1 e2) | typeOf env e1 == TileType && typeOf env e2 == TileType = TileType
-                       | otherwise = error "Type does not match in Or"
-typeOf env (Not x) | typeOf env x == TileType = TileType
-                   | otherwise = error "Type does not match in Not"
+typeOf env senv (And e1 e2) | t1 == TileType && t2 == TileType = (TileType,senv2)
+                            | otherwise = error "Type does not match in And"
+                            where (t1,senv1) = typeOf env senv e1
+                                  o@(t2,senv2) = typeOf env senv1 e2
+                       
+typeOf env senv (Or e1 e2) | t1 == TileType && t2 == TileType = (TileType,senv2)
+                           | otherwise = error "Type does not match in Or"
+                           where (t1,senv1) = typeOf env senv e1
+                                 o@(t2,senv2) = typeOf env senv1 e2
+                             
+typeOf env senv (Not e1) | t1 == TileType = (TileType,senv1)
+                         | otherwise = error "Type does not match in Not"
+                         where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env (Plus e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = IntType
-                        | otherwise = error "Type does not match in Plus"
-typeOf env (Minus e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = IntType
-                        | otherwise = error "Type does not match in Minus"
-typeOf env (IDiv e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = IntType
-                        | otherwise = error "Type does not match in IDiv"
-typeOf env (Mult e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = IntType
-                        | otherwise = error "Type does not match in Mult"
+typeOf env senv (Plus e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
+                             | otherwise = error "Type does not match in Plus"
+                             where (t1,senv1) = typeOf env senv e1
+                                   o@(t2,senv2) = typeOf env senv1 e2
+                                   
+typeOf env senv (Minus e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
+                              | otherwise = error "Type does not match in Minus"
+                              where (t1,senv1) = typeOf env senv e1
+                                    o@(t2,senv2) = typeOf env senv1 e2
+                              
+typeOf env senv (IDiv e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
+                             | otherwise = error "Type does not match in IDiv"
+                             where (t1,senv1) = typeOf env senv e1
+                                   o@(t2,senv2) = typeOf env senv1 e2
+                              
+typeOf env senv (Mult e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
+                             | otherwise = error "Type does not match in Mult"
+                             where (t1,senv1) = typeOf env senv e1
+                                   o@(t2,senv2) = typeOf env senv1 e2
 
-
-typeOf env (Greater e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = BoolType
-                        | otherwise = error "Type does not match in Greater"
-typeOf env (GreaterEqual e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = BoolType
-                                | otherwise = error "Type does not match in GreaterEqual"
-typeOf env (Less e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = BoolType
-                                | otherwise = error "Type does not match in Less"
-typeOf env (LessEqual e1 e2) | typeOf env e1 == IntType && typeOf env e2 == IntType = BoolType
-                                | otherwise = error "Type does not match in LessEqual"
-typeOf env (Subtile e1 e2 e3 e4) | typeOf env e1 == IntType && typeOf env e2 == IntType && typeOf env e3 == IntType && typeOf env e4 == TileType = TileType
-                                 | otherwise = error "Type does not match in Subtile"
-typeOf env (PlaceRight e1 e2) | typeOf env e1 == TileType && typeOf env e2 == TileType = TileType
+typeOf env senv (Greater e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                                | otherwise = error "Type does not match in Greater"
+                                where (t1,senv1) = typeOf env senv e1
+                                      o@(t2,senv2) = typeOf env senv1 e2
+                              
+typeOf env senv (GreaterEqual e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                                     | otherwise = error "Type does not match in GreaterEqual"
+                                     where (t1,senv1) = typeOf env senv e1
+                                           o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (Less e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                             | otherwise = error "Type does not match in Less"
+                             where (t1,senv1) = typeOf env senv e1
+                                   o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (LessEqual e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                                  | otherwise = error "Type does not match in LessEqual"
+                                  where (t1,senv1) = typeOf env senv e1
+                                        o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (Subtile e1 e2 e3 e4) | t1 == IntType && t2 == IntType && t3 == IntType && t4 == TileType = (TileType,senv4)
+                                      | otherwise = error "Type does not match in Subtile"
+                                      where (t1,senv1) = typeOf env senv e1
+                                            (t2,senv2) = typeOf env senv1 e2
+                                            (t3,senv3) = typeOf env senv2 e3
+                                            o@(t4,senv4) = typeOf env senv3 e4
+                                       
+typeOf env senv (PlaceRight e1 e2) | t1 == TileType && t2 == TileType = (TileType,senv2)
                                 | otherwise = error "Type does not match in PlaceRight"
-typeOf env (PlaceBelow e1 e2) | typeOf env e1 == TileType && typeOf env e2 == TileType = TileType
-                                | otherwise = error "Type does not match in PlaceBelow"
-typeOf env (RepeatRight e1 e2) | typeOf env e1 == IntType && typeOf env e2 == TileType = TileType
-                                | otherwise = error "Type does not match in RepeatRight"
-typeOf env (RepeatDown e1 e2) | typeOf env e1 == IntType && typeOf env e2 == TileType = TileType
-                                | otherwise = error "Type does not match in RepeatDown"
-typeOf env (RemoveRow e1 e2) | typeOf env e1 == IntType && typeOf env e2 == TileType = TileType
-                                | otherwise = error "Type does not match in RemoveRow"
-typeOf env (RemoveColumn e1 e2) | typeOf env e1 == IntType && typeOf env e2 == TileType = TileType
-                                | otherwise = error "Type does not match in RemoveColumn"
+                                where (t1,senv1) = typeOf env senv e1
+                                      o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (PlaceBelow e1 e2) | t1 == TileType && t2 == TileType = (TileType,senv2)
+                                   | otherwise = error "Type does not match in PlaceBelow"
+                                   where (t1,senv1) = typeOf env senv e1
+                                         o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (RepeatRight e1 e2) | t1 == IntType && t2 == TileType = (TileType,senv2)
+                                    | otherwise = error "Type does not match in RepeatRight"
+                                    where (t1,senv1) = typeOf env senv e1
+                                          o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (RepeatDown e1 e2) | t1 == IntType && t2 == TileType = (TileType,senv2)
+                                   | otherwise = error "Type does not match in RepeatDown"
+                                   where (t1,senv1) = typeOf env senv e1
+                                         o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (RemoveRow e1 e2) | t1 == IntType && t2 == TileType = (TileType,senv2)
+                                  | otherwise = error "Type does not match in RemoveRow"
+                                  where (t1,senv1) = typeOf env senv e1
+                                        o@(t2,senv2) = typeOf env senv1 e2
+                                      
+typeOf env senv (RemoveColumn e1 e2) | t1 == IntType && t2 == TileType = (TileType,senv2)
+                                     | otherwise = error "Type does not match in RemoveColumn"
+                                     where (t1,senv1) = typeOf env senv e1
+                                           o@(t2,senv2) = typeOf env senv1 e2
 
 --need to figure out for loops
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-typeOf env (Read x) | typeOf env x == StringType = TileType
+typeOf env senv (Read e1) | t1 == StringType = (TileType,senv1)
                     | otherwise = error "Type does not match in Read"
-typeOf env (Output x) | typeOf env x == TileType = BoolType
-                      | otherwise = error "Type does not match in Output"
+                    where o@(t1,senv1) = typeOf env senv e1
+                         
+typeOf env senv (Output e1) | t1 == TileType = (BoolType,senv1)
+                            | otherwise = error "Type does not match in Output"
+                            where o@(t1,senv1) = typeOf env senv e1
+
+typeOf env senv (For e1 e2 e3 e4) | t1 == IntType && t2 == IntType = o
+                               | otherwise = error "Type does not match in For"
+                               where (t1,senv1) = typeOf env senv e1
+                                     (t2,senv2) = typeOf env senv1 e2
+                                     (t3,senv3) = typeOf env senv2 e3
+                                     o@(t4,senv4) = typeOf env senv3 e4
