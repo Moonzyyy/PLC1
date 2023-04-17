@@ -180,6 +180,7 @@ blank (Int x) = Tile [[     '0'         | iterateX <- [1..x]] | iterateY <- [1..
 
 andT :: Literal -> Literal -> Literal
 andT (Tile x) (Tile y) = Tile (zipWith (zipWith andNum)  x y)
+andT (Int x) (Int y) = Int (x * y) --bc it is 0 and 1
           
 --Helper function for andT               
 andNum :: Char -> Char -> Char
@@ -188,8 +189,11 @@ andNum '0' '1' = '0'
 andNum '1' '0' = '0'
 andNum '1' '1' = '1'
 
+
 orT :: Literal -> Literal -> Literal
 orT (Tile x) (Tile y) = Tile (zipWith (zipWith orNum)  x y)
+orT (Int 0) (Int 0) = Int 0
+orT (Int x) (Int y) = Int 1
 
 --helper function of orT
 orNum :: Char -> Char -> Char
@@ -198,8 +202,10 @@ orNum '0' '1' = '1'
 orNum '1' '0' = '1'
 orNum '1' '1' = '1'
 
-notT :: Literal -> Literal
+notT :: Literal -> Literal 
 notT (Tile xs) = Tile [[  if y == '1' then '0' else '1'| y <- x] | x <-xs ]
+notT (Int 0) = Int 1 
+notT (Int 1) = Int 0
 
 add :: Literal -> Literal -> Literal
 add (Int x) (Int y) = Int (x+y)
@@ -243,10 +249,10 @@ flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
 
 swap :: Literal -> Literal -> Literal -> Literal
-swap = undefined
-
+swap (Tile x) (Int p1) (Int p2) = undefined
+         
 change :: Literal -> Literal -> Literal -> Literal
-change = undefined
+change (Tile x) (Int p) (Int c)= undefined
 
 plus :: Literal -> Literal -> Literal
 plus (Int a) (Int b) = Int (a + b)

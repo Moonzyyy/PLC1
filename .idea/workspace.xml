@@ -4,14 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="removeColumn  implemented">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="903edc2f-b33e-4005-8f00-a17df85d0d1f" name="Changes" comment="formatted">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.hi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/Tsl.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslGrammar.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslTokens.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.hi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/TslType.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/build/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/package.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/package.conf.inplace/package.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/fb759449e610dcce7a73eb887d6d30bb1ae24d82bcdadd2348c072695d936927/lib" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/dist/8a54c84f/stack-build-caches/fb759449e610dcce7a73eb887d6d30bb1ae24d82bcdadd2348c072695d936927/lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/bin/Tsl-exe.exe" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/bin/Tsl-exe.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/HSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/Tsl.hi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslType.hi" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/TslType.hi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/lib/x86_64-windows-ghc-9.2.7/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z/libHSTsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/Tsl-0.1.0.0-J6tcdTXhOOx4DqeMuP8o4Z.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/package.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/install/c569bc22/pkgdb/package.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.stack-work/stack.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/.stack-work/stack.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/Tsl.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PLC1/TslType.hs" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PLC1/TslType.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tsl.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tsl.hs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TslType.hs" beforeDir="false" afterPath="$PROJECT_DIR$/src/TslType.hs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testCode.tsl" beforeDir="false" afterPath="$PROJECT_DIR$/testCode.tsl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,14 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="jdk.selected.JAVA_MODULE" value="17" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\PLC1" />
@@ -194,6 +217,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alex and Happy are finally happy!" />

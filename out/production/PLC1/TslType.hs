@@ -177,32 +177,17 @@ typeOf env senv (RemoveColumn e1 e2) | t1 == IntType && t2 == TileType = (TileTy
 
 --need to figure out for loops
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 typeOf env senv (Read e1) | t1 == StringType = (TileType,senv1)
                     | otherwise = error "Type does not match in Read"
                     where o@(t1,senv1) = typeOf env senv e1
                          
 typeOf env senv (Output e1) | t1 == TileType = (BoolType,senv1)
-                      | otherwise = error "Type does not match in Output"
-                      where o@(t1,senv1) = typeOf env senv e1
+                            | otherwise = error "Type does not match in Output"
+                            where o@(t1,senv1) = typeOf env senv e1
+
+typeOf env senv (For e1 e2 e3 e4) | t1 == IntType && t2 == IntType = o
+                               | otherwise = error "Type does not match in For"
+                               where (t1,senv1) = typeOf env senv e1
+                                     (t2,senv2) = typeOf env senv1 e2
+                                     (t3,senv3) = typeOf env senv2 e3
+                                     o@(t4,senv4) = typeOf env senv3 e4
