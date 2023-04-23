@@ -1,2 +1,2 @@
-Let (t1:Tile) = Read "ex4Tile1.tl" In
+Let (t1:Tile) = If (True) Then (1) Else (0)  In
 Output t1

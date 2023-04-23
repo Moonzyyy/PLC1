@@ -20,6 +20,8 @@ tokens :-
   To             { \p _ -> TokenTo p}
   In            { \p _ -> TokenIn p}
 
+  While         { \p _ -> TokenWhile p}
+
   If            { \p _ -> TokenIf p}
   Then          { \p _ -> TokenThen p}
   Else          { \p _ -> TokenElse p}
@@ -28,7 +30,6 @@ tokens :-
   Output        { \p _ -> TokenOutput p}
   Size          { \p _ -> TokenSize p}
 
-  Interlace     { \p _ -> TokenInterlace p}
   Rotate90       { \p _ -> TokenRotate90 p}
   Rotate180      { \p _ -> TokenRotate180 p}
   Rotate270      { \p _ -> TokenRotate270 p}
@@ -54,11 +55,10 @@ tokens :-
   RemoveRow { \p _ -> TokenRemoveRow p}
   RemoveColumn { \p _ -> TokenRemoveColumn p}
 
-  Swap { \p _ -> TokenSwap p }
-  Change { \p _ -> TokenChange p}
-
   \:            { \p _ -> TokenColon p}
   \=            { \p _ -> TokenAssign p}
+  \==            { \p _ -> TokenEqualCompare p}
+  \/\=            { \p _ -> TokenEqualCompareNot p}
 
   \(            { \p _ -> TokenLParen p}
   \)            { \p _ -> TokenRParen p}
@@ -90,8 +90,12 @@ data Token =
   | TokenFor AlexPosn
   | TokenColon AlexPosn
   | TokenAssign AlexPosn
+  | TokenEqualCompare AlexPosn
+   | TokenEqualCompareNot AlexPosn
   | TokenIn AlexPosn
   | TokenTo AlexPosn
+
+  | TokenWhile AlexPosn
 
   | TokenIf AlexPosn
   | TokenThen AlexPosn
@@ -101,7 +105,6 @@ data Token =
   | TokenOutput AlexPosn
 
   | TokenSize AlexPosn
-  | TokenInterlace AlexPosn
   | TokenRotate90 AlexPosn
   | TokenRotate180 AlexPosn
   | TokenRotate270 AlexPosn
@@ -126,9 +129,6 @@ data Token =
   | TokenRepeatDown AlexPosn
   | TokenRemoveRow AlexPosn
   | TokenRemoveColumn AlexPosn
-
-  | TokenSwap AlexPosn
-  | TokenChange AlexPosn
 
   | TokenLParen AlexPosn
   | TokenRParen AlexPosn
@@ -158,9 +158,14 @@ tokenPosn (TokenStatic p) = printPosn p
 tokenPosn (TokenColon p) = printPosn p
 tokenPosn (TokenAssign p) = printPosn p
 tokenPosn (TokenIn p) = printPosn p
+tokenPosn (TokenEqualCompare p) = printPosn p
+tokenPosn (TokenEqualCompareNot p) = printPosn p
+
 
 tokenPosn (TokenFor p) = printPosn p
 tokenPosn (TokenTo p) = printPosn p
+
+tokenPosn (TokenWhile p) = printPosn p
 
 tokenPosn (TokenIf p) = printPosn p
 tokenPosn (TokenThen p) = printPosn p
@@ -178,9 +183,6 @@ tokenPosn (TokenRepeatDown p) = printPosn p
 
 tokenPosn (TokenRemoveRow p) = printPosn p
 tokenPosn (TokenRemoveColumn p) = printPosn p
-
-tokenPosn (TokenSwap p) = printPosn p
-tokenPosn (TokenChange p) = printPosn p
 
 tokenPosn (TokenDef p) = printPosn p
 tokenPosn (TokenComma p) = printPosn p

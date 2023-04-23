@@ -86,8 +86,7 @@ eval (Lit v, env, ForHole2 f e1 e2 e3 env':cons, senv) = return (e1, env', ForHo
 eval (Lit v, env, ForHole f e1 e2 env':cons, senv) = do (e, forEnv, forSenv) <- f v e1 e2
                                                         return (e2, env', cons, forSenv)
 
--- | Evaluates Interlace function
-eval (Interlace e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 interlace e2 env:cons, senv)
+
 -- | Evaluates let statement (\x -> e2) . e1
 eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
   where
@@ -95,6 +94,9 @@ eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
     f = AppHole c
 
 eval (For e1 e2 e3 e4, env, cons, senv) = return (e1, env, ForHole2 for e2 (e3,env,senv) e4 env:cons, senv)
+
+--eval (If e1 e2 e3 , env, cons, senv) = return (e1, env, FunctionHole ifElse e2 e3 env:cons, senv)
+
 eval (Size e, env, cons, senv) = return (e, env, FunctionHole size env:cons, senv)
 eval (Rotate90 e, env, cons, senv) = return (e, env, FunctionHole rotate90 env:cons, senv)
 eval (Rotate180 e, env, cons, senv) = return (e, env, FunctionHole rotate180 env:cons, senv)
@@ -119,9 +121,8 @@ eval (Plus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 plus e2 env:
 eval (Mult e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 mult e2 env:cons, senv)
 eval (IDiv e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 idiv e2 env:cons, senv)
 eval (Minus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 minus e2 env:cons, senv)
-
-eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
-eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
+eval (EqualCompare e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 equalCompare e2 env:cons, senv)
+eval (EqualCompareNot e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 equalCompareNot e2 env:cons, senv)
 
 
 eval (Subtile e1 e2 e3 e4, env, cons, senv) = return (e1, env, FunctionHole4 subTile e2 e3 e4 env:cons, senv)
@@ -148,12 +149,13 @@ output (Tile x) = do
 output (Int x) = do
     print x
     return ()
+output (Bool x) = do
+    print x
+    return ()
 
 size :: Literal -> Literal
 size (Tile x) = Int (length x)
 
-interlace :: Literal -> Literal -> Literal
-interlace (Tile x) (Tile y) = undefined
 
 
 rotate90 :: Literal -> Literal
@@ -248,12 +250,6 @@ removeColumn (Int x) (Tile ys) = Tile ( [ take (x-1) line ++ drop x line | line 
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
 
-swap :: Literal -> Literal -> Literal -> Literal
-swap (Tile x) (Int p1) (Int p2) = undefined
-         
-change :: Literal -> Literal -> Literal -> Literal
-change (Tile x) (Int p) (Int c)= undefined
-
 plus :: Literal -> Literal -> Literal
 plus (Int a) (Int b) = Int (a + b)
 
@@ -266,6 +262,14 @@ idiv (Int a) (Int b) = Int (div a b)
 minus :: Literal -> Literal -> Literal
 minus (Int a) (Int b) = Int (a - b)
 
+equalCompare :: Literal -> Literal -> Literal
+equalCompare (Int a) (Int b) = Bool (a == b)
+equalCompare (Tile a) (Tile b) = Bool (a == b)
+
+equalCompareNot :: Literal -> Literal -> Literal
+equalCompareNot (Int a) (Int b) = Bool (a /= b)
+equalCompareNot (Tile a) (Tile b) = Bool (a /= b)
+
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp
   where nextExp | n < m = do senv' <- evalLoop (e, env, [], senv)
@@ -274,6 +278,16 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 
                 | otherwise = return (exp, env, senv)
 
+--while :: Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
+--while (Bool x) (e,env,senv) exp = nextExp
+--  where nextExp | x == True = do senv' <- evalLoop (e, env, [], senv)
+--                              while (Bool ) (e, env, senv') exp
+--
+--                | otherwise = return (exp, env, senv)
+
+--ifElse :: Literal -> Exp -> Exp -> Exp
+--ifElse (Bool x) exp1 exp2 | x == True = exp1
+--                          | otherwise = exp2
 
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment
