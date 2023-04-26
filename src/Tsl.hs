@@ -25,7 +25,7 @@ someFunc = do
            let grammar = parseTsl(parser)
            logger grammar
            let typeCheck = typeOf [] [] grammar
-           logger typeCheck
+           logger $! typeCheck
            evalLoop (grammar, [], [], [])
            return ()
 
@@ -293,7 +293,7 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
                   logger e
-                  next@(e1,_,_,_) <- eval cek
+                  next@(_,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do
                       print "Program Terminated Cleanly"
