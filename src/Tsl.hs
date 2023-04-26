@@ -1,8 +1,3 @@
-module Tsl
-    ( someFunc
-    ) where
-
-
 import TslTokens
 import TslGrammar
 import TslType
@@ -16,16 +11,16 @@ logger :: Show a => a -> IO ()
 logger | debug = print
        | otherwise = const $ return ()
 
-someFunc :: IO ()
-someFunc = do
+main :: IO ()
+main = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
-           logger parser
+           --logger parser
            let grammar = parseTsl(parser)
-           logger grammar
+           --logger grammar
            let typeCheck = typeOf [] [] grammar
-           logger $! typeCheck
+           --logger $! typeCheck
            evalLoop (grammar, [], [], [])
            return ()
 
@@ -147,7 +142,7 @@ readTl (String x) = do
 
 output :: Literal -> IO ()
 output (Tile x) = do
-  print x
+  putStr $ unlines x
   return ()
 output (Int x) = do
     print x
@@ -298,7 +293,6 @@ evalLoop cek@(e,_,_,_) = do
                   next@(_,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do
-                      print "Program Terminated Cleanly"
                       return senv
                     _ -> evalLoop next
 
