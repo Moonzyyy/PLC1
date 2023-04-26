@@ -1,2 +1,0 @@
-Let (t1:Tile) = If (True) Then (1) Else (0)  In
-Output t1

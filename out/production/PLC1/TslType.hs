@@ -12,6 +12,7 @@ unparsedType :: Type -> String
 unparsedType IntType = "int"
 unparsedType StringType = "string"
 unparsedType TileType = "tile"
+unparsedType BoolType = "bool"
 
 addType :: TypeEnv -> String -> Type -> TypeEnv
 addType env x t = (x,t):env
@@ -93,14 +94,14 @@ typeOf env senv (Not e1) | t1 == TileType = (TileType,senv1)
                          | otherwise = error "Type does not match in Not"
                          where o@(t1,senv1) = typeOf env senv e1
 
-typeOf env senv (EqualCompare e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
-                                     | t1 == TileType && t2 == TileType = (TileType,senv2)
+typeOf env senv (EqualCompare e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                                     | t1 == TileType && t2 == TileType = (BoolType,senv2)
                                      | otherwise = error "Type does not match in EqualCompare"
                              where (t1,senv1) = typeOf env senv e1
                                    o@(t2,senv2) = typeOf env senv1 e2
                                    
-typeOf env senv (EqualCompareNot e1 e2) | t1 == IntType && t2 == IntType = (IntType,senv2)
-                                        | t1 == TileType && t2 == TileType = (TileType,senv2)
+typeOf env senv (EqualCompareNot e1 e2) | t1 == IntType && t2 == IntType = (BoolType,senv2)
+                                        | t1 == TileType && t2 == TileType = (BoolType,senv2)
                                         | otherwise = error "Type does not match in EqualCompare"
                              where (t1,senv1) = typeOf env senv e1
                                    o@(t2,senv2) = typeOf env senv1 e2
@@ -190,6 +191,8 @@ typeOf env senv (Read e1) | t1 == StringType = (TileType,senv1)
                     where o@(t1,senv1) = typeOf env senv e1
 
 typeOf env senv (Output e1) | t1 == TileType = (BoolType,senv1)
+                            | t1 == IntType = (BoolType, senv1)
+                            | t1 == BoolType = (BoolType, senv1)
                             | otherwise = error "Type does not match in Output"
                             where o@(t1,senv1) = typeOf env senv e1
 

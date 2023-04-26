@@ -40,6 +40,7 @@ data Frame = HoleApp Exp Environment
  | AppHole Exp
  | ReadHole Environment
  | OutputHole Environment
+ | IfHole  Exp Exp Environment
 
  | FunctionHole (Literal -> Literal) Environment
  | FunctionHole2 (Literal -> Literal -> Literal) Exp Environment
@@ -86,6 +87,9 @@ eval (Lit v, env, ForHole2 f e1 e2 e3 env':cons, senv) = return (e1, env', ForHo
 eval (Lit v, env, ForHole f e1 e2 env':cons, senv) = do (e, forEnv, forSenv) <- f v e1 e2
                                                         return (e2, env', cons, forSenv)
 
+eval (If e1 e2 e3 , env, cons, senv) = return (e1, env, IfHole e2 e3 env:cons, senv)
+eval (Lit v, env, IfHole e1 e2 env':cons, senv) | v == Bool (True) = return (e1, env', cons,senv)
+                                                | otherwise = return (e2, env', cons, senv);
 
 -- | Evaluates let statement (\x -> e2) . e1
 eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
@@ -95,7 +99,6 @@ eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
 
 eval (For e1 e2 e3 e4, env, cons, senv) = return (e1, env, ForHole2 for e2 (e3,env,senv) e4 env:cons, senv)
 
---eval (If e1 e2 e3 , env, cons, senv) = return (e1, env, FunctionHole ifElse e2 e3 env:cons, senv)
 
 eval (Size e, env, cons, senv) = return (e, env, FunctionHole size env:cons, senv)
 eval (Rotate90 e, env, cons, senv) = return (e, env, FunctionHole rotate90 env:cons, senv)
@@ -281,13 +284,12 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 --while :: Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 --while (Bool x) (e,env,senv) exp = nextExp
 --  where nextExp | x == True = do senv' <- evalLoop (e, env, [], senv)
---                              while (Bool ) (e, env, senv') exp
---
+--                                 while (Bool ) (e, env, senv') exp
 --                | otherwise = return (exp, env, senv)
 
---ifElse :: Literal -> Exp -> Exp -> Exp
---ifElse (Bool x) exp1 exp2 | x == True = exp1
---                          | otherwise = exp2
+ifElse :: Literal -> Exp -> Exp -> Exp
+ifElse (Bool x) exp1 exp2 | x == True = exp1
+                          | otherwise = exp2
 
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment

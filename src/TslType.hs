@@ -191,6 +191,8 @@ typeOf env senv (Read e1) | t1 == StringType = (TileType,senv1)
                     where o@(t1,senv1) = typeOf env senv e1
 
 typeOf env senv (Output e1) | t1 == TileType = (BoolType,senv1)
+                            | t1 == IntType = (BoolType, senv1)
+                            | t1 == BoolType = (BoolType, senv1)
                             | otherwise = error "Type does not match in Output"
                             where o@(t1,senv1) = typeOf env senv e1
 
