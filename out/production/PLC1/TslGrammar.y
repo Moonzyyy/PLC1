@@ -60,10 +60,12 @@ import TslTokens
   IDIV { TokenIDiv _ }
   MINUS { TokenMinus _ }
 
+  BoolType { TokenBoolType _ }
   IntType { TokenIntType _ }
   StringType { TokenStringType _ }
   TileType { TokenTileType _ }
 
+  bool { TokenBool _ $$ }
   int { TokenInt _ $$}
   string { TokenString _ $$ }
   var { TokenVar _ $$}
@@ -78,7 +80,7 @@ Exp : Literal { Lit $1 }
     | LET LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Let $3 $5 $8 $10}
     | STATIC LPAREN var COLON Type RPAREN ASSIGN Exp IN Exp {Static $3 $5 $8 $10}
     | FOR Exp TO Exp IN Exp IN Exp {For $2 $4 $6 $8}
-    | WHILE Exp 
+    | WHILE Exp IN Exp IN Exp {While $2 $4 $6}
     | ROTATE90 Exp {Rotate90 $2}
     | ROTATE180 Exp {Rotate180 $2}
     | ROTATE270 Exp {Rotate270 $2}
@@ -117,11 +119,12 @@ Exp : Literal { Lit $1 }
 
 Literal : string { String $1 }
         | int { Int $1 }
+        | bool { Bool $1 }
 
 Type : IntType { IntType }
      | StringType { StringType }
      | TileType { TileType }
-
+     | BoolType { BoolType }
 {
 
 parseError :: [Token] -> a
@@ -132,6 +135,7 @@ data Exp =
          | Static String Type Exp Exp
          | For Exp Exp Exp Exp
          | If Exp Exp Exp
+         | While Exp Exp Exp
          | Read Exp
          | Output Exp
          | EqualCompare Exp Exp

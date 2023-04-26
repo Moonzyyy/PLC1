@@ -1,29 +1,24 @@
-" Vim syntax file
-" Language: Tsl
+g" Vim syntax file
+ " Language: Tsl
 
 
-if exists("b:current_syntax")
-  finish
-endif
+ if exists("b:current_syntax")
+   finish
+ endif
 
-syn keyword TslTypes Tile Cell Bool Int Unit ->
-syn keyword TslBools true false
-syn keyword TslConditional if then else for to in
+ syn keyword TslTypes Tile Bool Int String
+ syn keyword TslBools True False
+ syn keyword TslConditional If Then Else For To Let In Static And Or Not While
 
-syn keyword TslTileFunctions Output Size Scale
-
-syn keyword TslTileCreators read
+ syn keyword TslTileFunctions Scale Output Read Size Interlace Rotate90 Rotate180 Rotate270 Scale FlipX FlipY FlipXY Blank Subtile PlaceRight PlaceBelow RepeatRight RepeatDown RemoveRow RemoveColumn Swap Change + * / - Def Comma
 
 
-syn keyword TslAssignement let in static
+
+ syn match TslParens /[()]/
+ syn match TslColon /:/
 
 
-syn match napParens /[()]/
-syn match napColon /:/
-
-
-hi def link TslTypes Type
-hi def link TslBools Boolean
-hi def link TslConditional Conditional
-hi def link TslTileFunctions Function
-hi def link TslTileCreators Function
+ hi def link TslTypes Type
+ hi def link TslBools Boolean
+ hi def link TslConditional Conditional
+ hi def link TslTileFunctions Function

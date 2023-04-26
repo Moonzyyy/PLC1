@@ -1,7 +1,4 @@
-module Tsl
-    ( someFunc
-    ) where
-
+module Tsl (someFunc) where
 
 import TslTokens
 import TslGrammar
@@ -21,11 +18,11 @@ someFunc = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
-           logger parser
+           --logger parser
            let grammar = parseTsl(parser)
-           logger grammar
+           --logger grammar
            let typeCheck = typeOf [] [] grammar
-           logger $! typeCheck
+           --logger $! typeCheck
            evalLoop (grammar, [], [], [])
            return ()
 
@@ -147,7 +144,7 @@ readTl (String x) = do
 
 output :: Literal -> IO ()
 output (Tile x) = do
-  print x
+  putStr $ unlines x
   return ()
 output (Int x) = do
     print x
@@ -281,13 +278,6 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 
                 | otherwise = return (exp, env, senv)
 
---while :: Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
---while (Bool x) (e,env,senv) exp = nextExp
---  where nextExp | x == True = do senv' <- evalLoop (e, env, [], senv)
---                              while (Bool ) (e, env, senv') exp
---
---                | otherwise = return (exp, env, senv)
-
 ifElse :: Literal -> Exp -> Exp -> Exp
 ifElse (Bool x) exp1 exp2 | x == True = exp1
                           | otherwise = exp2
@@ -299,7 +289,6 @@ evalLoop cek@(e,_,_,_) = do
                   next@(_,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do
-                      print "Program Terminated Cleanly"
                       return senv
                     _ -> evalLoop next
 

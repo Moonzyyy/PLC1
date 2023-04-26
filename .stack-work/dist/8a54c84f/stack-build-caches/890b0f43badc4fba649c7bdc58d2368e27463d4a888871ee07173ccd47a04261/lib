@@ -19,10 +19,10 @@ C:\Users\danie\OneDrive\Desktop\PLC1\Tsl.cabal:
 C:\Users\danie\OneDrive\Desktop\PLC1\package.yaml:
   hash: 3fd443c7eaf35d2b64bbaecffb4d6798ce21b7a0bab642db32dc38d97afd3fc6
 C:\Users\danie\OneDrive\Desktop\PLC1\src\Tsl.hs:
-  hash: 9d598da2566035ea47f3161806f706d87138a322c95861dd46bac89bcd651e41
+  hash: 22325b34fc310b0ff4de941ddf40796fd7551282927332045ade22a194394cab
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslGrammar.y:
-  hash: f168c13d6a4272837fe219eaa1ec5977b1050b597245ec6c0da27d301f559ff5
+  hash: 7854d0ca06866a4647b79f48179336bc609ca56fce9ffb0ea7b2430210d28977
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslTokens.x:
-  hash: 06e24b9db739a10876d057f5bd1dd066c3f598602c71ff4d11e64e063a550ea0
+  hash: 4be6f81e36c44108648b6433beb79084527665503152bd5daeff5e6d5657f5f9
 C:\Users\danie\OneDrive\Desktop\PLC1\src\TslType.hs:
   hash: 2a0e831d800dbf8500b7bbcbba2632764b80a130b83c9494a62a4523c1956108

@@ -60,10 +60,12 @@ import TslTokens
   IDIV { TokenIDiv _ }
   MINUS { TokenMinus _ }
 
+  BoolType { TokenBoolType _ }
   IntType { TokenIntType _ }
   StringType { TokenStringType _ }
   TileType { TokenTileType _ }
 
+  bool { TokenBool _ $$ }
   int { TokenInt _ $$}
   string { TokenString _ $$ }
   var { TokenVar _ $$}
@@ -117,11 +119,12 @@ Exp : Literal { Lit $1 }
 
 Literal : string { String $1 }
         | int { Int $1 }
+        | bool { Bool $1 }
 
 Type : IntType { IntType }
      | StringType { StringType }
      | TileType { TileType }
-
+     | BoolType { BoolType }
 {
 
 parseError :: [Token] -> a

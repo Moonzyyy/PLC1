@@ -1,3 +1,5 @@
+module Tsl (someFunc) where
+
 import TslTokens
 import TslGrammar
 import TslType
@@ -11,8 +13,8 @@ logger :: Show a => a -> IO ()
 logger | debug = print
        | otherwise = const $ return ()
 
-main :: IO ()
-main = do
+someFunc :: IO ()
+someFunc = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
@@ -275,12 +277,6 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
                              for (Int n') (Int m) (e, env, senv') exp
 
                 | otherwise = return (exp, env, senv)
-
---while :: Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
---while (Bool x) (e,env,senv) exp = nextExp
---  where nextExp | x == True = do senv' <- evalLoop (e, env, [], senv)
---                                 while (Bool ) (e, env, senv') exp
---                | otherwise = return (exp, env, senv)
 
 ifElse :: Literal -> Exp -> Exp -> Exp
 ifElse (Bool x) exp1 exp2 | x == True = exp1

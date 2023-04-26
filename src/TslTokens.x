@@ -77,6 +77,8 @@ tokens :-
   Bool          { \p _ -> TokenBoolType p }
   Tile          { \p _ -> TokenTileType p }
 
+  True          { \p s -> TokenBool p (read s) }
+  False         { \p s -> TokenBool p (read s) }
   $digit+       { \p s -> TokenInt p (read s) }
   \"[$alpha$digit\.]*\"        { \p s -> TokenString p (init (tail s)) }
   $alpha [$alpha$digit]*   { \p s -> TokenVar p s }
@@ -146,6 +148,7 @@ data Token =
   | TokenBoolType AlexPosn
   | TokenTileType AlexPosn
 
+  | TokenBool AlexPosn Bool
   | TokenInt AlexPosn Int
   | TokenString AlexPosn String
   | TokenVar AlexPosn String
