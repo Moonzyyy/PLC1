@@ -1,0 +1,21 @@
+Let (blueUp:Tile) = Read "ex8Tile1.tl" In
+Let (greenUp:Tile) = Read "ex8Tile2.tl" In
+Let (dGreenUp:Tile) = Scale 2 greenUp In
+Let (blueDown:Tile) = (FlipX blueUp) In
+Let (greenDown:Tile) = (FlipX greenUp) In
+Let (dGreenDown:Tile) = (FlipX dGreenUp) In
+
+Let (t11:Tile) = PlaceBelow (PlaceBelow (PlaceBelow (PlaceBelow (blueDown) (blueDown)) (greenUp)) (greenDown)) (blueUp) In
+Let (t12:Tile) = PlaceBelow (PlaceRight (blueDown) (greenDown)) (PlaceBelow (dGreenUp) (dGreenDown)) In
+Let (t1:Tile) = PlaceRight (t11) (t12) In
+Let (t2:Tile) = PlaceRight (PlaceRight (dGreenDown) (dGreenDown)) (PlaceBelow (greenDown) (blueUp)) In
+Let (t3:Tile) = PlaceRight (PlaceBelow (PlaceBelow (greenDown) (blueUp) ) (blueUp))    (PlaceBelow (dGreenDown) (PlaceRight (blueUp) (greenUp))) In
+Let (t4:Tile) = PlaceBelow (PlaceRight (blueUp) (blueUp)) (dGreenUp) In
+
+Let (pattern:Tile) = PlaceRight (t1) (PlaceBelow (t2) (PlaceRight (t3) (t4))) In
+Let (pattern2:Tile) = PlaceBelow (pattern) (FlipX pattern) In
+Let (pattern4:Tile) = PlaceRight (pattern2) (FlipY pattern2) In
+
+Let (line:Tile) = PlaceRight (PlaceRight (pattern4) (pattern4)) (pattern2) In
+Let (whole:Tile) = RepeatDown (4) (line) In
+Output whole

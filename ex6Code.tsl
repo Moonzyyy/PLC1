@@ -1,0 +1,21 @@
+Let (tile1:Tile) = Read "ex6Tile1.tl" In
+Let (tile2:Tile) = Read "ex6Tile2.tl" In
+Let (tile3:Tile) = Read "ex6Tile3.tl" In
+Let (n:Int) = Size tile1 In
+Let (blank:Tile) = Blank n In
+
+Let (line1:Tile) = RepeatRight (20) (PlaceRight (PlaceRight (tile1) (tile2)) (tile3)) In
+Let (line2:Tile) = RepeatRight (20) (PlaceRight (PlaceRight (tile2) (tile3)) (tile1)) In
+Let (line3:Tile) = RepeatRight (20) (PlaceRight (PlaceRight (tile3) (tile1)) (tile2)) In
+Let (middleBlock:Tile) = PlaceBelow (RepeatDown (18) (PlaceBelow (PlaceBelow (line3) (line2)) (line1))) (PlaceBelow (line3) (line2)) In
+
+Let (line123:Tile) = RepeatRight (19) (PlaceRight (PlaceRight (tile1) (tile2)) (tile3)) In
+Let (top1:Tile) = PlaceRight (PlaceRight (PlaceRight (blank) (blank))  (line123)  ) (tile1) In
+Let (top2:Tile) = PlaceRight (PlaceRight (PlaceRight (blank) (tile2) ) (tile3) ) (line123) In
+Let (topBlock:Tile) = PlaceBelow (top1) (top2) In
+Let (bottom1:Tile) = PlaceRight (PlaceRight (PlaceRight (line123) (tile1) ) (tile2) ) (blank) In
+Let (bottom2:Tile) = PlaceRight (PlaceRight (PlaceRight (tile3) (line123) ) (blank) ) (blank) In
+Let (bottomBlock:Tile) = PlaceBelow (bottom1) (bottom2) In
+
+Let (whole:Tile) = PlaceBelow (PlaceBelow (topBlock) (middleBlock)) (bottomBlock) In
+Output whole
