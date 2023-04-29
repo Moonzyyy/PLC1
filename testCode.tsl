@@ -1,2 +1,1 @@
-Let (t1:Tile) = Read "ex4Tile1.tl" In
-Output t1
+Let (x:Bool) = False In Output x

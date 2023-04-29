@@ -1,7 +1,4 @@
-module Tsl
-    ( someFunc
-    ) where
-
+module Tsl (someFunc) where
 
 import TslTokens
 import TslGrammar
@@ -21,11 +18,11 @@ someFunc = do
            (fileName:_) <- getArgs
            fileContent <- readFile fileName
            let parser = alexScanTokens(fileContent)
-           logger parser
+           --logger parser
            let grammar = parseTsl(parser)
-           logger grammar
+           --logger grammar
            let typeCheck = typeOf [] [] grammar
-           logger typeCheck
+           --logger $! typeCheck
            evalLoop (grammar, [], [], [])
            return ()
 
@@ -40,6 +37,7 @@ data Frame = HoleApp Exp Environment
  | AppHole Exp
  | ReadHole Environment
  | OutputHole Environment
+ | IfHole  Exp Exp Environment
 
  | FunctionHole (Literal -> Literal) Environment
  | FunctionHole2 (Literal -> Literal -> Literal) Exp Environment
@@ -86,8 +84,10 @@ eval (Lit v, env, ForHole2 f e1 e2 e3 env':cons, senv) = return (e1, env', ForHo
 eval (Lit v, env, ForHole f e1 e2 env':cons, senv) = do (e, forEnv, forSenv) <- f v e1 e2
                                                         return (e2, env', cons, forSenv)
 
--- | Evaluates Interlace function
-eval (Interlace e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 interlace e2 env:cons, senv)
+eval (If e1 e2 e3 , env, cons, senv) = return (e1, env, IfHole e2 e3 env:cons, senv)
+eval (Lit v, env, IfHole e1 e2 env':cons, senv) | v == Bool (True) = return (e1, env', cons,senv)
+                                                | otherwise = return (e2, env', cons, senv);
+
 -- | Evaluates let statement (\x -> e2) . e1
 eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
   where
@@ -95,6 +95,8 @@ eval (Let v _ e1 e2, env, cons, senv) = return (e1, env, f:cons, senv)
     f = AppHole c
 
 eval (For e1 e2 e3 e4, env, cons, senv) = return (e1, env, ForHole2 for e2 (e3,env,senv) e4 env:cons, senv)
+
+
 eval (Size e, env, cons, senv) = return (e, env, FunctionHole size env:cons, senv)
 eval (Rotate90 e, env, cons, senv) = return (e, env, FunctionHole rotate90 env:cons, senv)
 eval (Rotate180 e, env, cons, senv) = return (e, env, FunctionHole rotate180 env:cons, senv)
@@ -119,9 +121,8 @@ eval (Plus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 plus e2 env:
 eval (Mult e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 mult e2 env:cons, senv)
 eval (IDiv e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 idiv e2 env:cons, senv)
 eval (Minus e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 minus e2 env:cons, senv)
-
-eval (Swap e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 swap e2 e3 env:cons, senv)
-eval (Change e1 e2 e3, env, cons, senv) = return (e1, env, FunctionHole3 change e2 e3 env:cons, senv)
+eval (EqualCompare e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 equalCompare e2 env:cons, senv)
+eval (EqualCompareNot e1 e2, env, cons, senv) = return (e1, env, FunctionHole2 equalCompareNot e2 env:cons, senv)
 
 
 eval (Subtile e1 e2 e3 e4, env, cons, senv) = return (e1, env, FunctionHole4 subTile e2 e3 e4 env:cons, senv)
@@ -143,17 +144,18 @@ readTl (String x) = do
 
 output :: Literal -> IO ()
 output (Tile x) = do
-  print x
+  putStr $ unlines x
   return ()
 output (Int x) = do
+    print x
+    return ()
+output (Bool x) = do
     print x
     return ()
 
 size :: Literal -> Literal
 size (Tile x) = Int (length x)
 
-interlace :: Literal -> Literal -> Literal
-interlace (Tile x) (Tile y) = undefined
 
 
 rotate90 :: Literal -> Literal
@@ -248,20 +250,6 @@ removeColumn (Int x) (Tile ys) = Tile ( [ take (x-1) line ++ drop x line | line 
 flipXY :: Literal -> Literal
 flipXY (Tile x) = flipY $ flipX (Tile x)
 
-swap :: Literal -> Literal -> Literal -> Literal
-swap (Tile x) (Int p1) (Int p2) = (Tile newTile)
-   where sz = length x
-         list = concat x
-         c1 = list!!p1
-         c2 = list!!p2
-         listswapped1 = (take (p1-1) list) ++ c1 ++ (drop p1 list)
-         listswapped2 = (take (p2-1) listswapped1) ++ c2 ++ (drop p2 listswapped1)
-         newTile = takeWhile (not.null) . map (take sz listswapped2) . iterate (drop sz listswapped2)
-         
-
-change :: Literal -> Literal -> Literal -> Literal
-change (Tile x) (Int p) (Int c)= undefined
-
 plus :: Literal -> Literal -> Literal
 plus (Int a) (Int b) = Int (a + b)
 
@@ -274,6 +262,14 @@ idiv (Int a) (Int b) = Int (div a b)
 minus :: Literal -> Literal -> Literal
 minus (Int a) (Int b) = Int (a - b)
 
+equalCompare :: Literal -> Literal -> Literal
+equalCompare (Int a) (Int b) = Bool (a == b)
+equalCompare (Tile a) (Tile b) = Bool (a == b)
+
+equalCompareNot :: Literal -> Literal -> Literal
+equalCompareNot (Int a) (Int b) = Bool (a /= b)
+equalCompareNot (Tile a) (Tile b) = Bool (a /= b)
+
 for :: Literal -> Literal -> (Exp,Environment,Environment) -> Exp -> IO (Exp,Environment,Environment)
 for (Int n) (Int m) (e,env,senv) exp = nextExp
   where nextExp | n < m = do senv' <- evalLoop (e, env, [], senv)
@@ -282,15 +278,17 @@ for (Int n) (Int m) (e,env,senv) exp = nextExp
 
                 | otherwise = return (exp, env, senv)
 
+ifElse :: Literal -> Exp -> Exp -> Exp
+ifElse (Bool x) exp1 exp2 | x == True = exp1
+                          | otherwise = exp2
 
 -- | TODO: Add If statements and some form of recursion
 evalLoop :: CEK -> IO Environment
 evalLoop cek@(e,_,_,_) = do
                   logger e
-                  next@(e1,_,_,_) <- eval cek
+                  next@(_,_,_,_) <- eval cek
                   case next of
                     (END,_,_,senv) -> do
-                      print "Program Terminated Cleanly"
                       return senv
                     _ -> evalLoop next
 
