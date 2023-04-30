@@ -1,0 +1,24 @@
+Let (tile:Tile) = Read "ex7Tile1.tl" In
+Let (size:Int) = Size tile In
+Let (blank:Tile) = Blank size In
+
+# 1 to 100
+Static (count:Int) = 0 In
+Static (tileLarge:Tile) = Scale 100 tile In
+For 0 To 50 In
+   Static (count:Int) = count + 2 In
+   Static (backCount:Int) = 100 - count In
+   Static (newTile:Tile) = PlaceRight (PlaceBelow (RepeatRight backCount blank) (Scale backCount tile)) (RepeatDown (backCount + count) blank) In
+
+   Static (orTile:Tile) =  (tileLarge) Or (newTile) In
+   Static (nandTile:Tile) = Not (tileLarge And newTile) In
+   Static (tileLarge:Tile) = orTile And nandTile In
+   0
+In
+
+Let (tileX:Tile) = FlipX tileLarge In
+Let (tileY:Tile) = FlipY tileLarge In
+Let (tileXY:Tile) = FlipY (FlipX tileLarge) In
+
+Let (whole:Tile) = PlaceBelow (PlaceRight (tileLarge) (tileY))  (PlaceRight (tileX) (tileXY)) In
+Output whole
