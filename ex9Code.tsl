@@ -1,0 +1,25 @@
+Let (tile1:Tile) = Read "ex9Tile1.tl" In
+Let (size:Int) = Size tile1 In
+Let (blank:Tile) = Blank size In
+
+#Get the basic shape
+Static (count:Int) = 0 In
+Static (base:Tile) = RepeatRight 101 blank In
+For 0 To 50 In
+  Static (count:Int) = count + 1 In
+  Static (newLine:Tile) = PlaceRight (RepeatRight count tile1) (RepeatRight (101 - count) blank) In
+  Static (base:Tile) = PlaceBelow base (RepeatDown 2 (newLine)) In
+  0
+In
+
+Let (top:Tile) = FlipX (Rotate270 base) In
+Let (side:Tile) = FlipY base In
+Let (bottom:Tile) = Rotate270 base In
+
+#Each one overlaps. We want sections where the pattern occurs exactly once in the overlay of all
+# XOR = (A Or B) And (Not (A And B))
+Let (xor1:Tile) = (base Or bottom) And (Not (base And bottom)) In
+Let (xor2:Tile) = (top Or side) And (Not (top And side)) In
+Let (xor3:Tile) = (xor1 Or xor2) And (Not (xor1 And xor2)) In
+
+Output xor3
