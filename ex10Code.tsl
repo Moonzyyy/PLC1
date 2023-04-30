@@ -1,0 +1,24 @@
+Let (tile1:Tile) = Read "ex10Tile1.tl" In
+Let (tile2:Tile) = Read "ex10Tile2.tl" In
+Let (size1:Int) = Size tile1 In
+Let (size2:Int) = Size tile2 In
+
+Let (topCut:Tile) = RepeatDown 12 (Blank 1) In
+Let (top:Tile) = RemoveColumn (size1 + 1) (PlaceRight tile1 topCut) In
+
+Let (bottomCut:Tile) = RepeatDown ((size1 - size2) - 12) (Blank 1) In
+Let (bottom:Tile) = RemoveColumn (size1 + 1) (FlipX (PlaceRight (FlipX tile1) bottomCut)) In
+
+Let (middleCut1:Tile) = RepeatDown (size1 - 12) (Blank 1) In
+Let (middleCut2:Tile) = RepeatDown (size2) (Blank 1) In
+Let (middle:Tile) = Rotate90 (RemoveColumn (size1) (PlaceRight (RemoveColumn (size1+1) (FlipX (PlaceRight (FlipX tile1) middleCut1))) (middleCut2))) In
+
+Let (leftCut:Tile) = RepeatDown 12 (Blank 1) In
+Let (left:Tile) = Rotate270 (RemoveColumn 1 (PlaceRight leftCut middle)) In
+
+Let (rightCut:Tile) = RepeatDown ((size1 - size2) - 12) (Blank 1) In
+Let (right:Tile) = Rotate270 (RemoveColumn (1) (FlipX (PlaceRight rightCut (FlipX middle)))) In
+
+Let (replace:Tile) = PlaceRight (PlaceRight (left) (tile2)) (right) In
+Let (whole:Tile) = PlaceBelow (PlaceBelow (top) (replace)) (bottom) In
+Output whole
