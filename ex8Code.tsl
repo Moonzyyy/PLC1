@@ -5,6 +5,7 @@ Let (blueDown:Tile) = (FlipX blueUp) In
 Let (greenDown:Tile) = (FlipX greenUp) In
 Let (dGreenDown:Tile) = (FlipX dGreenUp) In
 
+##left ones
 Let (t11:Tile) = PlaceBelow (PlaceBelow (PlaceBelow (PlaceBelow (blueDown) (blueDown)) (greenUp)) (greenDown)) (blueUp) In
 Let (t12:Tile) = PlaceBelow (PlaceRight (blueDown) (greenDown)) (PlaceBelow (dGreenUp) (dGreenDown)) In
 Let (t1:Tile) = PlaceRight (t11) (t12) In
@@ -12,9 +13,22 @@ Let (t2:Tile) = PlaceRight (PlaceRight (dGreenDown) (dGreenDown)) (PlaceBelow (g
 Let (t3:Tile) = PlaceRight (PlaceBelow (PlaceBelow (greenDown) (blueUp) ) (blueUp))    (PlaceBelow (dGreenDown) (PlaceRight (blueUp) (greenUp))) In
 Let (t4:Tile) = PlaceBelow (PlaceRight (blueUp) (blueUp)) (dGreenUp) In
 
+##right ones
+Let (t11R:Tile) = PlaceBelow (PlaceBelow (PlaceBelow (PlaceBelow (blueDown) (blueDown)) (greenUp)) (greenDown)) (blueUp) In
+Let (t12R:Tile) = PlaceBelow (PlaceRight (greenDown) (blueDown)) (PlaceBelow (dGreenUp) (dGreenDown)) In
+Let (t1R:Tile) = PlaceRight (t12R) (t11R) In
+Let (t2R:Tile) = PlaceRight (PlaceRight (PlaceBelow (greenDown) (blueUp)) (dGreenDown)) (dGreenDown) In
+Let (t3R:Tile) = PlaceRight (PlaceBelow (dGreenDown) (PlaceRight (greenUp) (blueUp)))   (PlaceBelow (PlaceBelow (greenDown) (blueUp) ) (blueUp)) In
+Let (t4R:Tile) = PlaceBelow (PlaceRight (blueUp) (blueUp)) (dGreenUp) In
+
+##topleft
 Let (pattern:Tile) = PlaceRight (t1) (PlaceBelow (t2) (PlaceRight (t3) (t4))) In
+##topright
+Let (patternR:Tile) = PlaceRight (PlaceBelow (t2R) (PlaceRight (t4R) (t3R))) (t1R) In
+##wholequater
+Let (pattern4:Tile) = PlaceBelow (PlaceRight (pattern) (patternR)) (FlipX (PlaceRight (pattern) (patternR))) In
+##leftside
 Let (pattern2:Tile) = PlaceBelow (pattern) (FlipX pattern) In
-Let (pattern4:Tile) = PlaceRight (pattern2) (FlipY pattern2) In
 
 Let (line:Tile) = PlaceRight (PlaceRight (pattern4) (pattern4)) (pattern2) In
 Let (whole:Tile) = RepeatDown (4) (line) In
